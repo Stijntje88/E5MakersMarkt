@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "E5MakersMarkt (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "E5MakersMarkt (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
