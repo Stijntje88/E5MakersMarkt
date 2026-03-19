@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using E5MakersMarkt.Data;
 using E5MakersMarkt.Pages;
+using E5MakersMarkt.Pages.Login;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -34,7 +35,7 @@ namespace E5MakersMarkt
             db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
 
-            contenFrame.Navigate(typeof(HomePages));
+            contenFrame.Navigate(typeof(LoginOverViewPages));
         }
     }
 }
