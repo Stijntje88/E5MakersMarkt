@@ -10,10 +10,10 @@
 
     <Grid Background="White">
 
-        <Border BorderBrush="Gray"
+        <Border BorderBrush="SaddleBrown"
             BorderThickness="5"
             CornerRadius="12"
-            Padding="70"
+            Padding="90"
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
 
@@ -29,7 +29,7 @@
                     <TextBlock Text="Username"
                            FontSize="13"
                            FontWeight="SemiBold"
-                           Foreground="Black"/>
+                           Foreground="SaddleBrown"/>
                     <TextBox x:Name="UsernameBox"
                          PlaceholderText="Enter your Username"
                          Background="LightGray"
@@ -45,7 +45,7 @@
                     <TextBlock Text="Password"
                            FontSize="13"
                            FontWeight="SemiBold"
-                           Foreground="Black"/>
+                           Foreground="SaddleBrown"/>
                     <PasswordBox x:Name="PasswordBox"
                              PlaceholderText="Enter your password"
                              Background="LightGray"
