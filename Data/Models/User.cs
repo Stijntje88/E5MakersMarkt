@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,5 +12,11 @@ namespace E5MakersMarkt.Data.Models
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+
+
+        
+
+        public ICollection<User> Users { get; set; }
+        public ICollection<UserProduct> userProducts { get; set; }
     }
 }
