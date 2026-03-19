@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,10 @@ namespace E5MakersMarkt.Data.Models
         public string Img { get; set; }
         public string Material { get; set; }
         public string ProductionTime { get; set; }
+
+        
+        public ICollection<Product> Products { get; set; }
+        public ICollection<UserProduct> UserProducts { get; set; }
 
     }
 }
