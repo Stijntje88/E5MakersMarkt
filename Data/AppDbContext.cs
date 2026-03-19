@@ -1,4 +1,4 @@
-﻿using E5MakersMarkt.Data.Models;
+using E5MakersMarkt.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
