@@ -8,57 +8,74 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="#FFDEA6">
-        <StackPanel Spacing="24">
-            <StackPanel Spacing="8">
-                <TextBlock Text="Username"
-                               FontSize="13"
-                               FontWeight="SemiBold"
-                               Foreground="Black"/>
-                <TextBox x:Name="UsernameBox"
-                             PlaceholderText="Enter your Username"
-                             Background="#855400"
-                             Foreground="Black"
+    <Grid Background="White">
+
+        <Border BorderBrush="Gray"
+            BorderThickness="5"
+            CornerRadius="12"
+            Padding="70"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+
+            <StackPanel Spacing="24">
+
+                <Image Source="/Pictures/Logo.png"
+                   Width="500"
+                   Height="300"
+                   Stretch="Uniform"
+                   HorizontalAlignment="Center"/>
+
+                <StackPanel Spacing="8">
+                    <TextBlock Text="Username"
+                           FontSize="13"
+                           FontWeight="SemiBold"
+                           Foreground="Black"/>
+                    <TextBox x:Name="UsernameBox"
+                         PlaceholderText="Enter your Username"
+                         Background="LightGray"
+                         Foreground="Black"
+                         BorderBrush="#374151"
+                         BorderThickness="2"
+                         CornerRadius="8"
+                         Height="44"
+                         Padding="12,8"/>
+                </StackPanel>
+
+                <StackPanel Spacing="8">
+                    <TextBlock Text="Password"
+                           FontSize="13"
+                           FontWeight="SemiBold"
+                           Foreground="Black"/>
+                    <PasswordBox x:Name="PasswordBox"
+                             PlaceholderText="Enter your password"
+                             Background="LightGray"
                              BorderBrush="#374151"
                              BorderThickness="2"
                              CornerRadius="8"
                              Height="44"
                              Padding="12,8"/>
+                </StackPanel>
+
+                <TextBlock x:Name="ErrorMessage"
+                       TextAlignment="Center"
+                       Foreground="#EF4444"
+                       FontSize="13"
+                       FontWeight="SemiBold"
+                       TextWrapping="Wrap"/>
+
+                <Button Content="Login"
+                    Click="Login_Click"
+                    Height="36"
+                    FontWeight="SemiBold"
+                    FontSize="13"
+                    CornerRadius="8"
+                    Background="Black"
+                    Foreground="White"
+                    HorizontalAlignment="Center"
+                    BorderThickness="0"/>
             </StackPanel>
 
-            <StackPanel Spacing="8">
-                <TextBlock Text="Password"
-                   FontSize="13"
-                   FontWeight="SemiBold"
-                   Foreground="Black"/>
-                <PasswordBox x:Name="PasswordBox"
-                     PlaceholderText="Enter your password"
-                     Background="#855400"
-                     Foreground="black"
-                     BorderBrush="#374151"
-                     BorderThickness="2"
-                     CornerRadius="8"
-                     Height="44"
-                     Padding="12,8"/>
-            </StackPanel>
+        </Border>
 
-            <TextBlock x:Name="ErrorMessage"
-                 TextAlignment="Center"
-                 Foreground="#EF4444"
-                 FontSize="13"
-                 FontWeight="SemiBold"
-                 TextWrapping="Wrap"/>
-
-            <Button Content="Login"
-                        Click="Login_Click"
-                        Height="36"
-                        FontWeight="SemiBold"
-                        FontSize="13"
-                        CornerRadius="8"
-                        Background="#855400"
-                        Foreground="White"
-                        HorizontalAlignment="Center"
-                        BorderThickness="0"/>
-        </StackPanel>
     </Grid>
 </Page>
