@@ -3,7 +3,8 @@
     x:Class="E5MakersMarkt.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:E5MakersMarkt">
+    xmlns:local="using:E5MakersMarkt"
+    RequestedTheme="Light">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
