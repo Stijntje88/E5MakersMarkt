@@ -11,6 +11,16 @@
     <Grid>
 
         <TextBlock Text="Hoofpagina" />
-
+        <Button Content="LogOut"
+                        Click="LogOut_Click" 
+                        Height="36"
+                        FontWeight="SemiBold"
+                        FontSize="13"
+                        CornerRadius="8"
+                        Background="#855400"
+                        Foreground="White"
+                        HorizontalAlignment="Center"
+                        BorderThickness="0"
+            />
     </Grid>
 </Page>

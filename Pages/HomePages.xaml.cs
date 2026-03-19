@@ -1,3 +1,4 @@
+using E5MakersMarkt.Pages.Login;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -26,6 +27,11 @@ namespace E5MakersMarkt.Pages
         public HomePages()
         {
             InitializeComponent();
+        }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LoginOverViewPages));
         }
     }
 }
