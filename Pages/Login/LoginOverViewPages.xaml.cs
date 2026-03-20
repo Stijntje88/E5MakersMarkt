@@ -58,10 +58,13 @@ namespace E5MakersMarkt.Pages.Login
                 {
                     Frame.Navigate(typeof(BeheerOverViewPage));
                 }
-                else
+                if(user.Role == "user")
                 {
                     Frame.Navigate(typeof(HomePages));
-
+                }
+                else
+                {
+                    ShowError("Rol is niet gevonden neem contact met het beheer op");
                 }
             }
         }
@@ -95,6 +98,11 @@ namespace E5MakersMarkt.Pages.Login
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             AttemptLogin();
+        }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(RegisterOverViewPage));
         }
     }
 }

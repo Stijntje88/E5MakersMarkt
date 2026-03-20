@@ -14,7 +14,7 @@
             <TextBox x:Name="UsernameTextBox" PlaceholderText="Username"/>
             <TextBox x:Name="PasswordTextBox" PlaceholderText="Password"/>
             <Button Content="Registreren"
-                    Click="Register_Click"/>
+                    Click="RegisterButton_Click"/>
             <TextBlock x:Name="ErrorText"
            Foreground="Red"
            TextWrapping="Wrap"
