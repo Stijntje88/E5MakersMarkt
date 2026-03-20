@@ -129,6 +129,13 @@
                         </StackPanel>
 
 
+                        <TextBlock x:Name="ErrorMessage"
+                           TextAlignment="Center"
+                           Foreground="#EF4444"
+                           FontSize="13"
+                           FontWeight="SemiBold"
+                           TextWrapping="Wrap"/>
+
                         <Button x:Name="SaveChange"
                             Content="💾 Wijzigingen Opslaan"
                             Click="SaveChange_Click"

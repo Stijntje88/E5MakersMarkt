@@ -71,6 +71,11 @@ namespace E5MakersMarkt.Pages.Beheer
                 if (!string.IsNullOrEmpty(enterdPassword))
                 {
                     var hashedPassowrd = BCrypt.Net.BCrypt.HashPassword(enterdPassword);
+                    if (enterdPassword.Length < 6)
+                    {
+                        ErrorMessage.Text = ("Wachtwoord moet minimaal 6 tekens bevatten!");
+                        return;
+                    }
                     user.Password = hashedPassowrd;
                 }
 
