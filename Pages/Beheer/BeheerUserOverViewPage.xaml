@@ -26,7 +26,7 @@
                     <TextBlock Text="Admin Panel"
                     FontSize="12"
                     Foreground="White"
-                    Margin="0,5,0,0"/>
+                    Margin="10,5,0,0"/>
                 </StackPanel>
 
                 <Button Content="📊 Dashboard"
@@ -137,7 +137,7 @@
 
                                     <StackPanel Orientation="Horizontal" Spacing="5">
                                         <TextBlock Text="🎭" FontSize="14"/>
-                                        <TextBlock Text="Role: " FontSize="14" Foreground="#8B5E3C"/>
+                                        <TextBlock Text="Rol: " FontSize="14" Foreground="#8B5E3C"/>
                                         <TextBlock Text="{Binding Role}"
                                                        Foreground="#8B5E3C"
                                                        FontSize="14"    
