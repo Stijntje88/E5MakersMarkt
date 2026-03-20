@@ -32,7 +32,7 @@ namespace E5MakersMarkt.Data
             base.OnModelCreating(modelBuilder);
             // Seed data
             modelBuilder.Entity<User>().HasData(
-                new User { Id = 1, Username = "admin", Password = BCrypt.Net.BCrypt.HashPassword("admin123") }
+                new User { Id = 1, Username = "admin", Password = BCrypt.Net.BCrypt.HashPassword("admin123"), Role = "admin" }
             );
         }
     }
