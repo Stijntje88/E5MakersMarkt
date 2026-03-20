@@ -8,57 +8,122 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="#FFDEA6">
-        <StackPanel Spacing="24">
-            <StackPanel Spacing="8">
-                <TextBlock Text="Username"
-                               FontSize="13"
-                               FontWeight="SemiBold"
-                               Foreground="Black"/>
-                <TextBox x:Name="UsernameBox"
-                             PlaceholderText="Enter your Username"
-                             Background="#855400"
-                             Foreground="Black"
-                             BorderBrush="#374151"
-                             BorderThickness="2"
-                             CornerRadius="8"
-                             Height="44"
-                             Padding="12,8"/>
+    <Grid Background="#E7E1D4">
+
+        <Border BorderBrush="#CBB89D"
+            BorderThickness="2"
+            CornerRadius="16"
+            Padding="40"
+            Width="500"
+            Background="#F5F0E6"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+
+            <StackPanel Spacing="15">
+
+                <Image Source="/Pictures/Logo.png"
+                   Width="350"
+                   Height="250"
+                   Stretch="Uniform"
+                   HorizontalAlignment="Center"/>
+
+                <StackPanel Spacing="5">
+                    <TextBlock Text="Gebruikersnaam"
+                           FontSize="14"
+                           FontWeight="SemiBold"
+                           Foreground="#5C4033"/>
+
+                    <TextBox x:Name="UsernameBox"
+                         PlaceholderText="Voer je gebruikersnaam in"
+                         Background="White"
+                         Foreground="#3E2A1F"
+                         BorderBrush="#CBB89D"
+                         BorderThickness="2"
+                         CornerRadius="8"
+                         Height="44"
+                         Padding="12"/>
+                </StackPanel>
+
+
+                <StackPanel Spacing="5">
+                    <TextBlock Text="Wachtwoord"
+                           FontSize="14"
+                           FontWeight="SemiBold"
+                           Foreground="#5C4033"/>
+
+                    <PasswordBox x:Name="PasswordBox"
+                         PlaceholderText="Voer je wachtwoord in"
+                         Background="White"
+                         BorderBrush="#CBB89D"
+                         BorderThickness="2"
+                         CornerRadius="8"
+                         Height="44"
+                         Padding="12"/>
+                </StackPanel>
+
+                <TextBlock x:Name="ErrorMessage"
+                       TextAlignment="Center"
+                       Foreground="#A94438"
+                       FontSize="13"
+                       FontWeight="SemiBold"
+                       TextWrapping="Wrap"/>
+                
+                <StackPanel Spacing="10">
+
+                    <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Spacing="10">
+
+                        <Button Content="Login"
+                            Click="Login_Click"
+                            Width="150"
+                            Height="40"
+                            FontWeight="SemiBold"
+                            CornerRadius="10"
+                            Background="#C08A5B"
+                            Foreground="White"
+                            BorderThickness="0"/>
+
+                        <Button Content="Register"
+                            Click="Register_Click"
+                            Width="150"
+                            Height="40"
+                            FontWeight="SemiBold"
+                            CornerRadius="10"
+                            Background="#8B5E3C"
+                            Foreground="White"
+                            BorderThickness="0"/>
+                    </StackPanel>
+
+                    <!-- Rij 2 -->
+                    <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Spacing="10">
+
+                        <Button Content="DEV Beheer"
+                            Click="DevLoginAdmin_Click"
+                            Width="150"
+                            Height="36"
+                            FontWeight="SemiBold"
+                            CornerRadius="8"
+                            Background="#D6C3A3"
+                            Foreground="#3E2A1F"
+                            BorderThickness="0"/>
+
+                        <Button Content="DEV Player"
+                            Click="DevLoginPlayer_Click"
+                            Width="150"
+                            Height="36"
+                            FontWeight="SemiBold"
+                            CornerRadius="8"
+                            Background="#D6C3A3"
+                            Foreground="#3E2A1F"
+                            BorderThickness="0"/>
+                    </StackPanel>
+
+                </StackPanel>
+
             </StackPanel>
-
-            <StackPanel Spacing="8">
-                <TextBlock Text="Password"
-                   FontSize="13"
-                   FontWeight="SemiBold"
-                   Foreground="Black"/>
-                <PasswordBox x:Name="PasswordBox"
-                     PlaceholderText="Enter your password"
-                     Background="#855400"
-                     Foreground="black"
-                     BorderBrush="#374151"
-                     BorderThickness="2"
-                     CornerRadius="8"
-                     Height="44"
-                     Padding="12,8"/>
-            </StackPanel>
-
-            <TextBlock x:Name="ErrorMessage"
-                 TextAlignment="Center"
-                 Foreground="#EF4444"
-                 FontSize="13"
-                 FontWeight="SemiBold"
-                 TextWrapping="Wrap"/>
-
-            <Button Content="Login"
-                        Click="Login_Click"
-                        Height="36"
-                        FontWeight="SemiBold"
-                        FontSize="13"
-                        CornerRadius="8"
-                        Background="#855400"
-                        Foreground="White"
-                        HorizontalAlignment="Center"
-                        BorderThickness="0"/>
-        </StackPanel>
+        </Border>
     </Grid>
 </Page>
