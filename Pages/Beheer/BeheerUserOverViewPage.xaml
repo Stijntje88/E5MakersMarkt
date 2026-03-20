@@ -74,7 +74,7 @@
             </Grid.RowDefinitions>
 
             <Grid Background="#8B5E3C" Padding="30,0">
-                <TextBlock Text="👥 User Management"
+                <TextBlock Text="👥 Gebruikers Management"
                            FontSize="28"
                            FontWeight="Bold"
                            Foreground="White"
@@ -84,7 +84,7 @@
             
                 <Grid Grid.Row="1" Margin="30,20,30,10">
                 <TextBox x:Name="userSearchTextBox"
-                         PlaceholderText="🔍 Search users by name or email..."
+                         PlaceholderText="🔍 Zoek Gebruiker bij naam."
                          TextChanged="userSearchTextBox_TextChanged"
                          Background="White"
                          Foreground="#5C4033"
