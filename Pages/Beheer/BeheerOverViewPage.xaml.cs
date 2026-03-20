@@ -1,3 +1,4 @@
+using E5MakersMarkt.Pages.Login;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -31,6 +32,16 @@ namespace E5MakersMarkt.Pages.Beheer
         private void BeheerOverviewButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(BeheerOverViewPage));
+        }
+
+        private void UserButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(BeheerUserOverViewPage));
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LoginOverViewPages));
         }
     }
 }

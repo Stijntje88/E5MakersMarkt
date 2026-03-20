@@ -7,7 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    
+
     <Grid Background="#FFDEA6">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
@@ -15,27 +15,60 @@
         </Grid.ColumnDefinitions>
 
         <Grid Background="#855400">
-            <StackPanel Margin="0,0,0,40">
-                <TextBlock Text="🛠️ MakersMarkt"
-                 FontSize="24"
-                 FontWeight="Bold"
-                 Foreground="White"/>
+            <StackPanel Margin="20">
+                <StackPanel Margin="0,0,0,40">
+                    <TextBlock Text="🛠️ MakersMarkt"
+                     FontSize="24"
+                     FontWeight="Bold"
+                     Foreground="White"/>
 
-                <TextBlock Text="Admin Panel"
-                FontSize="12"
-                Foreground="White"
-                Margin="0,5,0,0"/>
+                    <TextBlock Text="Admin Panel"
+                    FontSize="12"
+                    Foreground="White"
+                    Margin="0,5,0,0"/>
+                </StackPanel>
+
+                <Button Content="📊 Dashboard"
+                    Margin="0,5"
+                    Padding="15,12"
+                    Background="#C97F00"
+                    Foreground="White"
+                    CornerRadius="8"
+                    FontWeight="SemiBold"
+                    BorderThickness="0"
+                    Click="BeheerOverviewButton_Click">
+                </Button>
+
+                <Button Content="👥 Gebruikers"
+                    Margin="0,5"
+                    Padding="15,12"
+                    Background="#C97F00"
+                    Foreground="White"
+                    CornerRadius="8"
+                    FontWeight="SemiBold"
+                    BorderThickness="0"
+                    Click="UserButton_Click">
+                </Button>
+                <Button x:Name="Logout"
+                    Content="🚪 Uitloggen"
+                    Margin="0,60,0,0"
+                    Padding="15,12"
+                    Background="#EF4444"
+                    Foreground="White"
+                    CornerRadius="8"
+                    FontWeight="SemiBold"
+                    BorderThickness="0"
+                    Click="Logout_Click">
+                </Button>
             </StackPanel>
-
-            <Button Content="📊 Dashboard"
-                Margin="0,5"
-                Padding="15,12"
-                Background="#C97F00"
-                Foreground="White"
-                CornerRadius="8"
-                FontWeight="SemiBold"
-                BorderThickness="0"
-                Click="BeheerOverviewButton_Click"/>
+        </Grid>
+        
+        
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
         </Grid>
     </Grid>
 </Page>
