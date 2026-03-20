@@ -9,9 +9,51 @@
     mc:Ignorable="d">
 
     <Grid>
+        <StackPanel Spacing="20">
 
-        <TextBlock Text="Hoofpagina" />
-        <Button Content="LogOut"
+            <TextBlock Text="Makers Markt"
+                           FontSize="28"
+                           FontWeight="SemiBold"
+                           CharacterSpacing="100"/>
+
+            <Border 
+                        CornerRadius="15"
+                        BorderBrush="#864f0c"
+                        BorderThickness="2"
+                        Padding="15,10">
+
+                <Border.Shadow>
+                    <ThemeShadow/>
+                </Border.Shadow>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Search Icon -->
+                    <FontIcon Grid.Column="0"
+                                  Glyph="&#xE721;"
+                                  FontSize="20"
+                                  Foreground="#864f0c"
+                                  Margin="0,0,12,0"
+                                  VerticalAlignment="Center"/>
+
+                    <!-- Search TextBox -->
+                    <TextBox Grid.Column="1"
+                                 x:Name="SearchBox"
+                                 PlaceholderText="Search"
+                                 TextChanged="SearchBox_TextChanged"
+                                 BorderThickness="0"
+                                 Background="Transparent"
+                                 FontSize="15"
+                                 VerticalAlignment="Center"/>
+                </Grid>
+            </Border>
+
+           
+            <Button Content="LogOut"
                         Click="LogOut_Click" 
                         Height="36"
                         FontWeight="SemiBold"
@@ -22,5 +64,64 @@
                         HorizontalAlignment="Center"
                         BorderThickness="0"
             />
+
+            <ListView x:Name="ItemList">
+
+                <ListView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <Border Padding="15"
+                                    Margin="0,5"
+                                    CornerRadius="10"
+                                    Background="#fafafa"
+                                    BorderBrush="#864f0c"
+                                    BorderThickness="1">
+
+                            <StackPanel>
+
+                                <TextBlock Text="{Binding Name}"
+                                               FontSize="18"
+                                               FontWeight="Bold"/>
+
+                                <TextBlock Text="{Binding Description}"
+                                               FontSize="13"
+                                               Foreground="#864f0c"/>
+
+                                <StackPanel Orientation="Horizontal" Spacing="20">
+
+                                    <TextBlock>
+                                            <Run Text="Type: "/>
+                                            <Run Text="{Binding Type}"/>
+                                    </TextBlock>
+                                    <TextBlock>
+                                            
+                                            <Run Text="{Binding Img}"/>
+                                    </TextBlock>
+                                    <TextBlock>
+                                            <Run Text="Material:   "/>
+                                            <Run Text="{Binding Material}"/>
+                                    </TextBlock>
+                                    <TextBlock>
+        <Run Text="{Binding ProductionTime}"/>
+                                    </TextBlock>
+
+                                </StackPanel>
+
+                               
+
+                            </StackPanel>
+
+                        </Border>
+
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </StackPanel>
+
     </Grid>
+
 </Page>

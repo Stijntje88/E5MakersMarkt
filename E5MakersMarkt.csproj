@@ -13,6 +13,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Pages\Beheer\BeheerOverViewPage.xaml" />
+    <None Remove="Pages\Beheer\BeheerUserOverViewPage.xaml" />
     <None Remove="Pages\Login\LoginOverViewPages.xaml" />
   </ItemGroup>
 
@@ -24,6 +26,7 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Pictures\Logo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,7 +48,17 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.3" />
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Pages\Beheer\BeheerUserOverViewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Pages\Login\LoginOverViewPages.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Beheer\BeheerOverViewPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
