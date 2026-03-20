@@ -148,6 +148,15 @@
                                         Orientation="Horizontal"
                                         Spacing="10">
 
+                                    <Button Content="🛠️ Bewerken"
+                                            Background="DarkBlue"
+                                            Foreground="White"
+                                            Padding="12,8"
+                                            CornerRadius="6"
+                                            FontWeight="SemiBold"
+                                            Click="Edit_Click">
+                                    </Button>
+
                                     <Button Content="🗑️ Verwijderen"
                                             Background="#EF4444"
                                             Foreground="White"

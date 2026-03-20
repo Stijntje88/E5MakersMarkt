@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="E5MakersMarkt.Pages.Beheer.BeheerUserEditPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:E5MakersMarkt.Pages.Beheer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#E7E1D4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="#8B5E3C">
+            <StackPanel Margin="20">
+                <StackPanel Margin="0,0,0,40">
+                    <TextBlock Text="🛠️ MakersMarkt"
+                     FontSize="24"
+                     FontWeight="Bold"
+                     Foreground="White"/>
+
+                    <TextBlock Text="Admin Panel"
+                    FontSize="12"
+                    Foreground="White"
+                    Margin="0,5,0,0"/>
+                </StackPanel>
+
+                <Button Content="📊 Dashboard"
+                    Margin="0,5"
+                    Padding="15,12"
+                    Background="#C08A5B"
+                    Foreground="White"
+                    CornerRadius="8"
+                    FontWeight="SemiBold"
+                    BorderThickness="0"
+                    Click="BeheerOverviewButton_Click">
+                </Button>
+
+                <Button Content="👥 Gebruikers"
+                    Margin="0,5"
+                    Padding="15,12"
+                    Background="#C08A5B"
+                    Foreground="White"
+                    CornerRadius="8"
+                    FontWeight="SemiBold"
+                    BorderThickness="0"
+                    Click="UserButton_Click">
+                </Button>
+                <Button x:Name="Logout"
+                    Content="🚪 Uitloggen"
+                    Margin="0,60,0,0"
+                    Padding="15,12"
+                    Background="#EF4444"
+                    Foreground="White"
+                    CornerRadius="8"
+                    FontWeight="SemiBold"
+                    BorderThickness="0"
+                    Click="Logout_Click">
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Background="#8B5E3C" Padding="30,0">
+                <TextBlock Text="🛠️ Gebruiker Bewerken"
+                 FontSize="28"
+                 FontWeight="Bold"
+                 Foreground="#F5F0E6"
+                 VerticalAlignment="Center"/>
+            </Grid>
+
+
+            <Grid Grid.Row="1">
+                <Border Background="#F5F0E6"
+                    CornerRadius="16"
+                    Padding="30"
+                    Width="500"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderBrush="#D6C3A3"
+                    BorderThickness="1">
+
+                    <StackPanel Spacing="20">
+
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Gebruikersnaam"
+                                   FontSize="14"
+                                   Foreground="#5C4033"
+                                   FontWeight="SemiBold"/>
+
+                            <TextBox x:Name="NameTextBox"
+                               Height="45"
+                               PlaceholderText="Voer naam in"
+                               FontSize="16"
+                               BorderBrush="#CBB89D"
+                               BorderThickness="2"
+                               Background="White"
+                               Foreground="#3E2A1F"
+                               CornerRadius="8"
+                               Padding="12"/>
+                        </StackPanel>
+
+
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Nieuw wachtwoord"
+                                   FontSize="14"
+                                   Foreground="#5C4033"
+                                   FontWeight="SemiBold"/>
+
+                            <PasswordBox x:Name="PasswordTextBox"
+                               PlaceholderText="Laat leeg om niet te wijzigen"
+                               Height="45"
+                               FontSize="16"
+                               BorderBrush="#CBB89D"
+                               BorderThickness="2"
+                               Background="White"
+                               Foreground="#3E2A1F"
+                               CornerRadius="8"
+                               Padding="12"/>
+                        </StackPanel>
+
+
+                        <Button x:Name="SaveChange"
+                            Content="💾 Wijzigingen Opslaan"
+                            Click="SaveChange_Click"
+                            Height="45"
+                            Background="#C08A5B"
+                            Foreground="White"
+                            FontSize="16"
+                            FontWeight="SemiBold"
+                            CornerRadius="10"
+                            BorderThickness="0"/>
+
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
