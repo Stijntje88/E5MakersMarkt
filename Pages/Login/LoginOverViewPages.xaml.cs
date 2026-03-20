@@ -50,7 +50,7 @@ namespace E5MakersMarkt.Pages.Login
                 ShowError("Ongeldige gebruikersnaam of wachtwoord!");
                 return;
 
-                PasswordBox.Password = string.Empty;
+                PasswordBox.Password = "";
             }
             else
             {

@@ -107,4 +107,13 @@ public sealed partial class BeheerUserOverViewPage : Page
             }
         }
     }
+
+    private void Edit_Click(object sender, RoutedEventArgs e)
+    {
+        using var db = new AppDbContext();
+
+        var button = sender as Button;
+        var user = button?.DataContext as User;
+        Frame.Navigate(typeof(BeheerUserEditPage), user);
+    }
 }
