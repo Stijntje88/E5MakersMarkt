@@ -17,6 +17,7 @@
     <None Remove="Pages\Beheer\BeheerUserEditPage.xaml" />
     <None Remove="Pages\Beheer\BeheerUserOverViewPage.xaml" />
     <None Remove="Pages\Login\LoginOverViewPages.xaml" />
+    <None Remove="Pictures\Logo.png" />
   </ItemGroup>
 
   <ItemGroup>
