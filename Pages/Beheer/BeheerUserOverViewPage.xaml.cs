@@ -1,4 +1,5 @@
 using E5MakersMarkt.Data;
+using E5MakersMarkt.Data.Models;
 using E5MakersMarkt.Pages.Login;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -12,6 +13,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
@@ -67,5 +69,42 @@ public sealed partial class BeheerUserOverViewPage : Page
     private void Logout_Click(object sender, RoutedEventArgs e)
     {
         Frame.Navigate(typeof(LoginOverViewPages));
+    }
+
+    private async void DeleteUserButton_Click(object sender, RoutedEventArgs e)
+    {
+        using var db = new AppDbContext();
+
+        var button = sender as Button;
+        var userId = button?.DataContext as User;
+
+        if (userId != null)
+        {
+            ContentDialog confirmDialog = new ContentDialog
+            {
+                Title = "Bestig Verwijderen",
+                Content = $"Weet je zeker dat je '{userId.Username}' wilt verwijderen?",
+                PrimaryButtonText = "Verwijderen",
+                CloseButtonText = "Anuleren",
+                XamlRoot = this.XamlRoot
+            };
+
+            var result = await confirmDialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                db.Users.Remove(userId);
+                db.SaveChanges();
+                LoadUser();
+                var dialog = new ContentDialog
+                {
+                    Title = "Verwijderd!",
+                    Content = "Gebruiker is verwijderd.",
+                    CloseButtonText = "OK",
+                    XamlRoot = this.XamlRoot
+                };
+                await dialog.ShowAsync();
+            }
+        }
     }
 }
