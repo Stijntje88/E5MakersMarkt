@@ -8,13 +8,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="#FFDEA6">
+    <Grid Background="#E7E1D4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Background="#855400">
+        <Grid Background="#8B5E3C">
             <StackPanel Margin="20">
                 <StackPanel Margin="0,0,0,40">
                     <TextBlock Text="🛠️ MakersMarkt"
@@ -31,7 +31,7 @@
                 <Button Content="📊 Dashboard"
                     Margin="0,5"
                     Padding="15,12"
-                    Background="#C97F00"
+                    Background="#C08A5B"
                     Foreground="White"
                     CornerRadius="8"
                     FontWeight="SemiBold"
@@ -42,7 +42,7 @@
                 <Button Content="👥 Gebruikers"
                     Margin="0,5"
                     Padding="15,12"
-                    Background="#C97F00"
+                    Background="#C08A5B"
                     Foreground="White"
                     CornerRadius="8"
                     FontWeight="SemiBold"

@@ -9,19 +9,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="#FFDEA6">
+    <Grid Background="#E7E1D4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Background="#855400">
+        <Grid Background="#8B5E3C">
             <StackPanel Margin="20">
                 <StackPanel Margin="0,0,0,40">
                     <TextBlock Text="🛠️ MakersMarkt"
                      FontSize="24"
                      FontWeight="Bold"
-                     Foreground="White"/>
+                     Foreground="white"/>
 
                     <TextBlock Text="Admin Panel"
                     FontSize="12"
@@ -32,7 +32,7 @@
                 <Button Content="📊 Dashboard"
                     Margin="0,5"
                     Padding="15,12"
-                    Background="#C97F00"
+                    Background="#C08A5B"
                     Foreground="White"
                     CornerRadius="8"
                     FontWeight="SemiBold"
@@ -43,7 +43,7 @@
                 <Button Content="👥 Gebruikers"
                     Margin="0,5"
                     Padding="15,12"
-                    Background="#C97F00"
+                    Background="#C08A5B"
                     Foreground="White"
                     CornerRadius="8"
                     FontWeight="SemiBold"
@@ -70,10 +70,10 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/> 
             </Grid.RowDefinitions>
 
-            <Grid Background="#855400" Padding="30,0">
+            <Grid Background="#8B5E3C" Padding="30,0">
                 <TextBlock Text="👥 User Management"
                            FontSize="28"
                            FontWeight="Bold"
@@ -86,10 +86,10 @@
                 <TextBox x:Name="userSearchTextBox"
                          PlaceholderText="🔍 Search users by name or email..."
                          TextChanged="userSearchTextBox_TextChanged"
-                         Background="#855400"
-                         Foreground="White"
-                         PlaceholderForeground="#9CA3AF"
-                         BorderBrush="#755400"
+                         Background="White"
+                         Foreground="#5C4033"
+                         PlaceholderForeground="#A68A75"
+                         BorderBrush="#CBB89D"
                          BorderThickness="2"
                          CornerRadius="8"
                          Height="44"
@@ -104,10 +104,10 @@
 
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="localData:User">
-                        <Border Background="#955400"
+                        <Border Background="White"
                                 CornerRadius="12"
                                 BorderThickness="2"
-                                BorderBrush="#755400"
+                                BorderBrush="#D6C3A3"
                                 Padding="20"
                                 Margin="0,0,0,15">
                             <Grid>
@@ -118,7 +118,7 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Border Background="#374151"
+                                <Border Background="#C08A5B"
                                         CornerRadius="8"
                                         Width="50"
                                         Height="50">
@@ -132,16 +132,16 @@
 
                                 <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="20,0">
                                     <TextBlock Text="{Binding Username}"
-                                               Foreground="White"
+                                               Foreground="#3E2A1F"
                                                FontSize="18"/>
                                
                                     
                                 <StackPanel Orientation="Horizontal" Spacing="5">
                                     <TextBlock Text="🎭" FontSize="14"/>
-                                        <TextBlock Text="Role: " FontSize="14" Foreground="#60A5FA"/>
+                                        <TextBlock Text="Role: " FontSize="14" Foreground="#8B5E3C"/>
                                         <TextBlock Text="{Binding Role}"
-                                                       Foreground="#60A5FA"
-                                                       FontSize="14"
+                                                       Foreground="#8B5E3C"
+                                                       FontSize="14"    
                                                        FontWeight="SemiBold"/>
                                 </StackPanel>
                                 </StackPanel>
