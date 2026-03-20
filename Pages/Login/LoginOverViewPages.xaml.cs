@@ -69,7 +69,7 @@ namespace E5MakersMarkt.Pages.Login
             }
         }
 
-        private void DevLoginPlayer_Click(object sender, RoutedEventArgs e)
+        private void DevLoginAdmin_Click(object sender, RoutedEventArgs e)
         {
             var username = "admin";
             var password = "admin123";
@@ -87,6 +87,27 @@ namespace E5MakersMarkt.Pages.Login
             else
             {
                 Frame.Navigate(typeof(BeheerOverViewPage));
+            }
+        }
+
+        private void DevLoginPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            var username = "john.doe";
+            var password = "Welcome123!";
+
+            using var db = new AppDbContext();
+
+            var user = db.Users.FirstOrDefault(u =>
+            u.Username.ToLower() == username.ToLower());
+
+            if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.Password))
+            {
+                ShowError("⚠ ACCESS DENIED: Incorrect Wachtwoord!");
+
+            }
+            else
+            {
+                Frame.Navigate(typeof(HomePages));
             }
         }
 

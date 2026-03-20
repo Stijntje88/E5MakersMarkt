@@ -62,42 +62,59 @@
                        FontSize="13"
                        FontWeight="SemiBold"
                        TextWrapping="Wrap"/>
-                
-                <Button Content="Login"
-                    Click="Login_Click"
-                    Height="36"
-                    FontWeight="SemiBold"
-                    FontSize="13"
-                    CornerRadius="8"
-                    Background="Black"
-                    Foreground="White"
-                    HorizontalAlignment="Center"
-                    BorderThickness="0"/>
-                
-                <Button Content="Register"
-                    Click="Register_Click"
-                    Height="36"
-                    FontWeight="SemiBold"
-                    FontSize="13"
-                    CornerRadius="8"
-                    Background="Black"
-                    Foreground="White"
-                    HorizontalAlignment="Center"
-                    BorderThickness="0"/>
+                <StackPanel Spacing="10">
 
-                <Button Content="DEV - Login - Beheer"
-                    Click="DevLoginPlayer_Click"
-                    Height="36"
-                    FontWeight="SemiBold"
-                    FontSize="13"
-                    CornerRadius="8"
-                    Background="Black"
-                    Foreground="White"
-                    HorizontalAlignment="Center"     
-                    BorderThickness="0"/>
+                    
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                        <Button Content="Login"
+                            Click="Login_Click"
+                            Width="140"
+                            Height="36"
+                            FontWeight="SemiBold"
+                            FontSize="13"
+                            CornerRadius="8"
+                            Background="Black"
+                            Foreground="White"
+                            BorderThickness="0"/>
+
+                        <Button Content="Register"
+                            Click="Register_Click"
+                            Width="140"
+                            Height="36"
+                            FontWeight="SemiBold"
+                            FontSize="13"
+                            CornerRadius="8"
+                            Background="Black"
+                            Foreground="White"
+                            BorderThickness="0"/>
+                        </StackPanel>
+
+                    
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                        <Button Content="DEV Login [Beheer]"
+                            Click="DevLoginAdmin_Click"
+                            Width="140"
+                            Height="36"
+                            FontWeight="SemiBold"
+                            FontSize="13"
+                            CornerRadius="8"
+                            Background="Black"
+                            Foreground="White"
+                            BorderThickness="0"/>
+
+                        <Button Content="DEV Login [Player]"
+                            Click="DevLoginPlayer_Click"
+                            Width="140"
+                            Height="36"
+                            FontWeight="SemiBold"
+                            FontSize="13"
+                            CornerRadius="8"
+                            Background="Black"
+                            Foreground="White"
+                            BorderThickness="0"/>
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
-            
-
         </Border>
     </Grid>
 </Page>
