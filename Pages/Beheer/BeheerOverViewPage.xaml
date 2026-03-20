@@ -62,13 +62,47 @@
                 </Button>
             </StackPanel>
         </Grid>
-        
-        
+
+
         <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+            <StackPanel Spacing="20"
+                Padding="20"
+                Background="#FDF8F3"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+                <Border Background="#FFF"
+                    CornerRadius="12"
+                    Padding="25"
+                    MaxWidth="320">
+
+                    <StackPanel Spacing="15"
+                        HorizontalAlignment="Center">
+
+                        <TextBlock Text="⚙ Maintenance"
+                           FontSize="18"
+                           Foreground="#5C4033"
+                           FontWeight="SemiBold"
+                           HorizontalAlignment="Center"/>
+
+
+                        <ProgressRing IsActive="True"
+                          Width="40"
+                          Height="40"
+                          Foreground="#5C4033"/>
+
+                        <TextBlock x:Name="NameTextBox"
+                           Text="Het BeheerDashboard is momenteel in de maak..."
+                           TextWrapping="Wrap"
+                           FontSize="14"
+                           Foreground="#3E2A1F"
+                           Opacity="0.85"
+                           TextAlignment="Center"/>
+
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>
