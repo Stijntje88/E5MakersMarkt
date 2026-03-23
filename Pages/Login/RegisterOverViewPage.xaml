@@ -8,19 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-<<<<<<< Updated upstream
-    <Grid>
-        <StackPanel>
-            <TextBlock Text="Registreren"/>
-            <TextBox x:Name="UsernameTextBox" PlaceholderText="Username"/>
-            <TextBox x:Name="PasswordTextBox" PlaceholderText="Password"/>
-            <Button Content="Registreren"
-                    Click="Register_Click"/>
-            <TextBlock x:Name="ErrorText"
-           Foreground="Red"
-           TextWrapping="Wrap"
-           HorizontalAlignment="Center"/>
-=======
+
     <Grid Background="#E7E1D4">
         <Border BorderBrush="#CBB89D"
     BorderThickness="2"
@@ -46,7 +34,7 @@
                    Foreground="Red"
                    TextWrapping="Wrap"
                    HorizontalAlignment="Center"/>
->>>>>>> Stashed changes
+
 
 
                 </StackPanel>
