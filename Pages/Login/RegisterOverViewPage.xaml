@@ -8,6 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+<<<<<<< Updated upstream
     <Grid>
         <StackPanel>
             <TextBlock Text="Registreren"/>
@@ -19,9 +20,37 @@
            Foreground="Red"
            TextWrapping="Wrap"
            HorizontalAlignment="Center"/>
+=======
+    <Grid Background="#E7E1D4">
+        <Border BorderBrush="#CBB89D"
+    BorderThickness="2"
+    CornerRadius="16"
+    Padding="40"
+    Width="500"
+    Background="#F5F0E6"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center">
+            <StackPanel Spacing="15">
+
+                <Image Source="/Pictures/Logo.png"
+                       Width="350"
+                       Height="250"
+                       Stretch="Uniform"
+                       HorizontalAlignment="Center"/>
+                <TextBlock Text="Registreren"/>
+                    <TextBox x:Name="UsernameTextBox" PlaceholderText="Username"/>
+                    <TextBox x:Name="PasswordTextBox" PlaceholderText="Password"/>
+                    <Button Content="Registreren"
+                            Click="RegisterButton_Click"/>
+                    <TextBlock x:Name="ErrorText"
+                   Foreground="Red"
+                   TextWrapping="Wrap"
+                   HorizontalAlignment="Center"/>
+>>>>>>> Stashed changes
 
 
-        </StackPanel>
+                </StackPanel>
+            </Border>
 
     </Grid>
 </Page>
