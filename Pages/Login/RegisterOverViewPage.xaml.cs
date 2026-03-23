@@ -34,7 +34,7 @@ namespace E5MakersMarkt.Pages.Login
             private void RegisterButton_Click(object sender, RoutedEventArgs e)
             {
             string username = UsernameTextBox.Text;
-            string password = PasswordTextBox.Text;
+            string password = PasswordTextBox.Password;
 
             if (string.IsNullOrWhiteSpace(username) ||
                 string.IsNullOrWhiteSpace(password) )
@@ -53,6 +53,10 @@ namespace E5MakersMarkt.Pages.Login
             using var db = new AppDbContext();
             db.Users.Add(newUser);
             db.SaveChanges();
+            Frame.Navigate(typeof(LoginOverViewPages));
+        }
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
             Frame.Navigate(typeof(LoginOverViewPages));
         }
     }
