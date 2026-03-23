@@ -1,4 +1,5 @@
-using E5MakersMarkt.Data;
+﻿using E5MakersMarkt.Data;
+using E5MakersMarkt.Pages.Beheer;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -49,11 +50,64 @@ namespace E5MakersMarkt.Pages.Login
                 ShowError("Ongeldige gebruikersnaam of wachtwoord!");
                 return;
 
-                PasswordBox.Password = string.Empty;
+                PasswordBox.Password = "";
             }
             else
             {
-                 Frame.Navigate(typeof(HomePages));
+                if(user.Role == "admin")
+                {
+                    Frame.Navigate(typeof(BeheerOverViewPage));
+                }
+                if(user.Role == "user")
+                {
+                    Frame.Navigate(typeof(HomePages));
+                }
+                else
+                {
+                    ShowError("Rol is niet gevonden neem contact met het beheer op");
+                }
+            }
+        }
+
+        private void DevLoginAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            var username = "admin";
+            var password = "admin123";
+
+            using var db = new AppDbContext();
+
+            var user = db.Users.FirstOrDefault(u =>
+            u.Username.ToLower() == username.ToLower());
+
+            if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.Password))
+            {
+                ShowError("⚠ ACCESS DENIED: Incorrect Wachtwoord!");
+
+            }
+            else
+            {
+                Frame.Navigate(typeof(BeheerOverViewPage));
+            }
+        }
+
+        private void DevLoginPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            var username = "john.doe";
+            var password = "Welcome123!";
+
+            using var db = new AppDbContext();
+
+            var user = db.Users.FirstOrDefault(u =>
+            u.Username.ToLower() == username.ToLower());
+
+            if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.Password))
+            {
+                ShowError("⚠ ACCESS DENIED: Incorrect Wachtwoord!");
+
+            }
+            else
+            {
+                Frame.Navigate(typeof(HomePages));
             }
         }
 
@@ -65,6 +119,11 @@ namespace E5MakersMarkt.Pages.Login
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             AttemptLogin();
+        }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(RegisterOverViewPage));
         }
     }
 }

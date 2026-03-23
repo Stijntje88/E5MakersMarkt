@@ -1,3 +1,5 @@
+using E5MakersMarkt.Data;
+using E5MakersMarkt.Data.Models;
 using E5MakersMarkt.Pages.Login;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -24,10 +26,44 @@ namespace E5MakersMarkt.Pages
     /// </summary>
     public sealed partial class HomePages : Page
     {
+        private List<Product> _allProducts;
+
         public HomePages()
         {
-            InitializeComponent();
+            this.InitializeComponent();
+            LoadProducts();
         }
+
+        private void LoadProducts()
+        {
+            using var db = new AppDbContext();
+            _allProducts = db.Products.ToList();
+            ItemList.ItemsSource = _allProducts;
+        }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var searchText = SearchBox.Text.ToLower().Trim();
+
+            if (string.IsNullOrEmpty(searchText))
+            {
+                ItemList.ItemsSource = _allProducts;
+            }
+            else
+            {
+                var filteredItems = _allProducts.Where(item =>
+                    item.Name?.ToLower().Contains(searchText) == true ||
+                    item.Description?.ToLower().Contains(searchText) == true ||
+                    item.Type?.ToLower().Contains(searchText) == true ||
+                    item.Material?.ToLower().Contains(searchText) == true ||
+                    item.ProductionTime?.ToLower().Contains(searchText) == true
+                ).ToList();
+
+                ItemList.ItemsSource = filteredItems;
+            }
+        }
+
+
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
