@@ -30,14 +30,14 @@ namespace E5MakersMarkt.Pages.Login
         {
             InitializeComponent();
         }
-
-            private void RegisterButton_Click(object sender, RoutedEventArgs e)
-            {
+        //test
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
             string username = UsernameTextBox.Text;
-            string password = PasswordTextBox.Text;
+            string password = PasswordTextBox.Password;
 
             if (string.IsNullOrWhiteSpace(username) ||
-                string.IsNullOrWhiteSpace(password) )
+                string.IsNullOrWhiteSpace(password))
             {
                 ErrorText.Text = "Vul alle velden in.";
                 return;
@@ -48,11 +48,15 @@ namespace E5MakersMarkt.Pages.Login
                 Username = username,
                 Password = BCrypt.Net.BCrypt.HashPassword(password),
                 Role = "user",
-               
+
             };
             using var db = new AppDbContext();
             db.Users.Add(newUser);
             db.SaveChanges();
+            Frame.Navigate(typeof(LoginOverViewPages));
+        }
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
             Frame.Navigate(typeof(LoginOverViewPages));
         }
     }
