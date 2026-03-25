@@ -33,8 +33,8 @@ namespace E5MakersMarkt.Pages.Login
         }
 
 
-            private void RegisterButton_Click(object sender, RoutedEventArgs e)
-            {
+        private async void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
 
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Password;
@@ -83,6 +83,15 @@ namespace E5MakersMarkt.Pages.Login
 
             db.Users.Add(newUser);
             db.SaveChanges();
+            ContentDialog dialog = new ContentDialog
+            {
+                XamlRoot = this.XamlRoot,
+                Title = "Registratie is voltooid",
+                Content = "Je account is succesvol aangemaakt.",
+                CloseButtonText = "OK"
+            };
+
+            await dialog.ShowAsync();
 
             Frame.Navigate(typeof(LoginOverViewPages));
         }

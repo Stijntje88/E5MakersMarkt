@@ -26,8 +26,16 @@
                    Height="250"
                    Stretch="Uniform"
                    HorizontalAlignment="Center"/>
+                
+               
 
                 <StackPanel Spacing="5">
+                    <TextBlock Text="LoginPage"
+                               FontSize="14"
+                               FontWeight="SemiBold"
+                               Foreground="#5C4033"
+                               HorizontalAlignment="Center"/>
+                    
                     <TextBlock Text="Gebruikersnaam"
                            FontSize="14"
                            FontWeight="SemiBold"
