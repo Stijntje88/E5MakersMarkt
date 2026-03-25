@@ -40,7 +40,7 @@ namespace E5MakersMarkt.Pages.Login
             string password = PasswordTextBox.Password;
 
             if (string.IsNullOrWhiteSpace(username) ||
-                string.IsNullOrWhiteSpace(password) )
+                string.IsNullOrWhiteSpace(password))
             {
                 ErrorText.Text = "Vul alle velden in.";
                 return;
@@ -90,5 +90,6 @@ namespace E5MakersMarkt.Pages.Login
         {
             Frame.Navigate(typeof(LoginOverViewPages));
         }
+        
     }
 }
