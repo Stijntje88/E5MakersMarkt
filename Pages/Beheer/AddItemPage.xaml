@@ -23,6 +23,10 @@
                 <TextBox x:Name="TypeBox"
                          Header="Type"
                          PlaceholderText="wat voor product is het"/>
+                
+                <TextBox x:Name="ImgBox"
+                         Header="Img"
+                         PlaceholderText="voer hier de img in"/>
 
                 <TextBox x:Name="MaterialBox"
                          Header="Material"

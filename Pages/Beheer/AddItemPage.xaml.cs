@@ -35,9 +35,9 @@ public sealed partial class AddItemPage : Page
     {
         Product item = new Product
         {
-            Id = 1,
             Name = ItemNameBox.Text,
             Description = DescriptionBox.Text,
+            Img = ImgBox.Text,
             Type = TypeBox.Text,
             Material = MaterialBox.Text,
             ProductionTime = ProductionTimeBox.Text,
