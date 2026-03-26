@@ -18,6 +18,7 @@
     <None Remove="Pages\Beheer\BeheerUserOverViewPage.xaml" />
     <None Remove="Pages\DetailPage.xaml" />
     <None Remove="Pages\Login\LoginOverViewPages.xaml" />
+    <None Remove="Pages\OrderPage.xaml" />
     <None Remove="Pictures\Logo.png" />
   </ItemGroup>
 
@@ -49,6 +50,11 @@
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7705" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260209005" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\OrderPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\DetailPage.xaml">

@@ -44,5 +44,17 @@
     Foreground="White"
     BorderThickness="0"/>
 
+   
+            <Button Content="Order"
+                Click="Order_Click"
+                Width="150"
+                Height="40"
+                FontWeight="SemiBold"
+                CornerRadius="10"
+                Background="#C08A5B"
+                Foreground="White"
+                BorderThickness="0"/>
+        
+
     </Grid>
 </Page>

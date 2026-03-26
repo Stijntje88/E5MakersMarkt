@@ -1,5 +1,6 @@
 using E5MakersMarkt.Data;
 using E5MakersMarkt.Data.Models;
+using E5MakersMarkt.Data.Session;
 using E5MakersMarkt.Pages.Login;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -63,10 +64,9 @@ namespace E5MakersMarkt.Pages
             }
         }
 
-
-
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
+            CurrentSession.LoggedInUser = null;
             Frame.Navigate(typeof(LoginOverViewPages));
         }
 
