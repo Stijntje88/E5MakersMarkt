@@ -15,10 +15,13 @@
             <RowDefinition Height="Auto"/>
             
             <RowDefinition Height="Auto"/>
-            
-            
+            <RowDefinition Height="Auto"/>
+
+            <RowDefinition Height="Auto"/>
+
+
         </Grid.RowDefinitions>
-        <ListView x:Name="ProductListView"  
+        <ListView x:Name="ProductListView" Grid.Row="0" 
                                     >
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="LocalData:UserProduct">
@@ -31,7 +34,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Content="Home"
+        <Button Content="Home" Grid.Row="1"
     Click="Home_Click"
     Width="150"
     Height="40"

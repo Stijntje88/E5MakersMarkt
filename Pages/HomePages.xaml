@@ -65,9 +65,9 @@
                         BorderThickness="0"
             />
 
-            
-                
-                <ListView x:Name="ItemList"
+
+
+            <ListView x:Name="ItemList"
                           IsItemClickEnabled="True"
                             ItemClick="ProductList_ItemClick">
 

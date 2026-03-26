@@ -36,28 +36,25 @@ namespace E5MakersMarkt.Pages
         {
             base.OnNavigatedTo(e);
 
-            var ClickedProduct = (Product)e.Parameter;
+            var clickedProduct = e.Parameter as Product;
+
+            if (clickedProduct == null)
+                return;
 
             using var db = new AppDbContext();
 
-            var Product = db.Products
-                        .Include(c => c.UserProduct)
-                        .ThenInclude(bc => bc.User)
-                        .FirstOrDefault(c => c.Id == ClickedProduct.Id);
+            var product = db.Products
+                .Include(c => c.UserProduct)
+                .ThenInclude(bc => bc.User)
+                .FirstOrDefault(c => c.Id == clickedProduct.Id);
+
+            if (product != null)
+            {
+                ProductListView.ItemsSource = product.UserProduct;
+            }
         }
 
-            //if (Product != null)
-            //{
-            //    idTextBox.Text = citizen.Id.ToString();
-            //    nameTextBox.Text = citizen.Name;
-            //    jobTextBox.Text = citizen.Job;
-            //    buildingsListView.ItemsSource = citizen.BuildingCitizen.ToList();
-
-            //    // Laat de gebouwen zien via de many-to-many relatie
-            //    //buildingsListView.ItemsSource = citizen.BuildingCitizen
-            //    //                                       .Select(bc => bc.Building)
-            //    //                                       .ToList();
-            //}
+            
             private void Home_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(HomePages));
