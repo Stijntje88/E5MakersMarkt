@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="E5MakersMarkt.Pages.AddItemPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:E5MakersMarkt.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <ScrollViewer>
+            <StackPanel Padding="20" Spacing="10">
+
+                <TextBox x:Name="ItemNameBox"
+                         Header="Item Name"
+                         PlaceholderText="de naam van de product"/>
+
+                <TextBox x:Name="DescriptionBox"
+                         Header="Description"
+                         PlaceholderText="Beschrijf de product"/>
+
+                <TextBox x:Name="TypeBox"
+                         Header="Type"
+                         PlaceholderText="wat voor product is het"/>
+
+                <TextBox x:Name="MaterialBox"
+                         Header="Material"
+                         PlaceholderText="welke materiaal is de product?"/>
+
+                <TextBox x:Name="ProductionTimeBox"
+                         Header="ProdutionTime"
+                         PlaceholderText="hoelang deed het om de product te maken"/>
+
+                <Button Content="Save Item"
+                        Click="Save_Click"
+                        HorizontalAlignment="Left"/>    
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

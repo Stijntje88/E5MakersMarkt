@@ -64,6 +64,17 @@
                         HorizontalAlignment="Center"
                         BorderThickness="0"
             />
+            <Button Content="Item toevoegen"
+            Click="AddItem_Click"
+            Height="36"
+            FontWeight="SemiBold"
+            FontSize="13"
+            CornerRadius="8"
+            Background="#855400"
+            Foreground="White"
+            HorizontalAlignment="Center"
+            BorderThickness="0"
+/>
 
             <ListView x:Name="ItemList">
 

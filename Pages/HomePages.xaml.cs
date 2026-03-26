@@ -69,5 +69,10 @@ namespace E5MakersMarkt.Pages
         {
             Frame.Navigate(typeof(LoginOverViewPages));
         }
+
+        private void AddItem_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AddItemPage));
+        }
     }
 }
