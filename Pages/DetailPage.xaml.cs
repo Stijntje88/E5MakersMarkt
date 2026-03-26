@@ -55,14 +55,7 @@ namespace E5MakersMarkt.Pages
             ProductListView.ItemsSource = product?.UserProduct?.ToList();
         }
 
-            if (product != null)
-            {
-                ProductListView.ItemsSource = product.UserProduct;
-            }
-        }
-
-            
-            private void Home_Click(object sender, RoutedEventArgs e)
+        private void Home_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(HomePages));
         }
