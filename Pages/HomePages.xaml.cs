@@ -72,10 +72,12 @@ namespace E5MakersMarkt.Pages
 
         private void ProductList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var Product = (Product)e.ClickedItem;
-            //var CitizenId = Citizen.Id;
+            var product = e.ClickedItem as Product;
 
-            Frame.Navigate(typeof(DetailPage), Product);
+            if (product == null)
+                return;
+
+            Frame.Navigate(typeof(DetailPage), product);
         }
     }
 }

@@ -55,19 +55,14 @@ namespace E5MakersMarkt.Pages
             ProductListView.ItemsSource = product?.UserProduct?.ToList();
         }
 
-            //if (Product != null)
-            //{
-            //    idTextBox.Text = citizen.Id.ToString();
-            //    nameTextBox.Text = citizen.Name;
-            //    jobTextBox.Text = citizen.Job;
-            //    buildingsListView.ItemsSource = citizen.BuildingCitizen.ToList();
+            if (product != null)
+            {
+                ProductListView.ItemsSource = product.UserProduct;
+            }
+        }
 
-            //    // Laat de gebouwen zien via de many-to-many relatie
-            //    //buildingsListView.ItemsSource = citizen.BuildingCitizen
-            //    //                                       .Select(bc => bc.Building)
-            //    //                                       .ToList();
-            //}
-        private void Home_Click(object sender, RoutedEventArgs e)
+            
+            private void Home_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(HomePages));
         }
