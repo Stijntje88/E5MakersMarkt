@@ -69,5 +69,13 @@ namespace E5MakersMarkt.Pages
         {
             Frame.Navigate(typeof(LoginOverViewPages));
         }
+
+        private void ProductList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var Product = (Product)e.ClickedItem;
+            //var CitizenId = Citizen.Id;
+
+            Frame.Navigate(typeof(DetailPage), Product);
+        }
     }
 }

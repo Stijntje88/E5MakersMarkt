@@ -15,9 +15,8 @@ namespace E5MakersMarkt.Data.Models
         public string Role { get; set; }
 
 
-        
 
-        public ICollection<User> Users { get; set; }
-        public ICollection<UserProduct> userProducts { get; set; }
+
+        public List<UserProduct> UserProduct { get; set; }
     }
 }

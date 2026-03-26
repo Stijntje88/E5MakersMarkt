@@ -38,7 +38,7 @@ namespace E5MakersMarkt.Pages.Login
 
             if (string.IsNullOrEmpty(enterdUsername) || string.IsNullOrEmpty(enterdPassword))
             {
-                ShowError("Een van de gevenens zijn niet ingevuld!");
+                ShowError("Een van de gegevens zijn niet ingevuld!");
                 return;
             }
 
