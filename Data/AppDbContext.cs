@@ -10,22 +10,26 @@ using Windows.UI;
 
 namespace E5MakersMarkt.Data
 {
-    class AppDbContext : DbContext
+    internal class AppDbContext : DbContext
     {
         
         public DbSet<Product> Products { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Comment> Comments { get; set; }
         public DbSet<UserProduct> UserProducts { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql(
-                "server=localhost;" +
-                "database=" +
-                "MakersMarkt;" +
-                "user=root;" +
-                "password=;",
-                ServerVersion.Parse("8.0.30")
-            );
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseMySql(
+                    "server=localhost;" +
+                    "database=" +
+                    "MakersMarkt;" +
+                    "user=root;" +
+                    "password=;",
+                    ServerVersion.Parse("8.0.30")
+                );
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

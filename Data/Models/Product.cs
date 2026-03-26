@@ -17,5 +17,6 @@ namespace E5MakersMarkt.Data.Models
         public string ProductionTime { get; set; }
 
         public List<UserProduct> UserProduct { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }
