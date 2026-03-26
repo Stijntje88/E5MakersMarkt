@@ -1,4 +1,5 @@
 ﻿using E5MakersMarkt.Data;
+using E5MakersMarkt.Data.Session;
 using E5MakersMarkt.Pages.Beheer;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -54,6 +55,8 @@ namespace E5MakersMarkt.Pages.Login
             }
             else
             {
+                CurrentSession.LoggedInUser = user;
+
                 if(user.Role == "admin")
                 {
                     Frame.Navigate(typeof(BeheerOverViewPage));
@@ -86,6 +89,7 @@ namespace E5MakersMarkt.Pages.Login
             }
             else
             {
+                CurrentSession.LoggedInUser = user;
                 Frame.Navigate(typeof(BeheerOverViewPage));
             }
         }
@@ -107,6 +111,7 @@ namespace E5MakersMarkt.Pages.Login
             }
             else
             {
+                CurrentSession.LoggedInUser = user;
                 Frame.Navigate(typeof(HomePages));
             }
         }
