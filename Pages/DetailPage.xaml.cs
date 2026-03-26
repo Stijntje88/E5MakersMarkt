@@ -27,6 +27,8 @@ namespace E5MakersMarkt.Pages
     /// </summary>
     public sealed partial class DetailPage : Page
     {
+        private Product? _selectedProduct;
+
         public DetailPage()
         {
             InitializeComponent();
@@ -36,14 +38,21 @@ namespace E5MakersMarkt.Pages
         {
             base.OnNavigatedTo(e);
 
-            var ClickedProduct = (Product)e.Parameter;
+            var clickedProduct = e.Parameter as Product;
+            if (clickedProduct is null)
+            {
+                return;
+            }
 
             using var db = new AppDbContext();
 
-            var Product = db.Products
+            var product = db.Products
                         .Include(c => c.UserProduct)
                         .ThenInclude(bc => bc.User)
-                        .FirstOrDefault(c => c.Id == ClickedProduct.Id);
+                        .FirstOrDefault(c => c.Id == clickedProduct.Id);
+
+            _selectedProduct = product ?? clickedProduct;
+            ProductListView.ItemsSource = product?.UserProduct?.ToList();
         }
 
             //if (Product != null)
@@ -58,9 +67,14 @@ namespace E5MakersMarkt.Pages
             //    //                                       .Select(bc => bc.Building)
             //    //                                       .ToList();
             //}
-            private void Home_Click(object sender, RoutedEventArgs e)
+        private void Home_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(HomePages));
+        }
+
+        private void Order_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(OrderPage), _selectedProduct);
         }
     }
 }
