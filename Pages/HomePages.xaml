@@ -76,60 +76,66 @@
             BorderThickness="0"
 />
 
-            <ListView x:Name="ItemList">
 
-                <ListView.ItemTemplate>
 
-                    <DataTemplate>
+            <ListView x:Name="ItemList"
+                          IsItemClickEnabled="True"
+                            ItemClick="ProductList_ItemClick">
 
-                        <Border Padding="15"
-                                    Margin="0,5"
-                                    CornerRadius="10"
-                                    Background="#fafafa"
-                                    BorderBrush="#864f0c"
-                                    BorderThickness="1">
+                    <ListView.ItemTemplate>
 
-                            <StackPanel>
+                        <DataTemplate>
 
-                                <TextBlock Text="{Binding Name}"
-                                               FontSize="18"
-                                               FontWeight="Bold"/>
+                            <Border Padding="15"
+                                        Margin="0,5"
+                                        CornerRadius="10"
+                                        Background="#fafafa"
+                                        BorderBrush="#864f0c"
+                                        BorderThickness="1">
 
-                                <TextBlock Text="{Binding Description}"
-                                               FontSize="13"
-                                               Foreground="#864f0c"/>
+                                <StackPanel>
 
-                                <StackPanel Orientation="Horizontal" Spacing="20">
+                                    <TextBlock Text="{Binding Name}"
+                                                   FontSize="18"
+                                                   FontWeight="Bold"/>
 
-                                    <TextBlock>
-                                            <Run Text="Type: "/>
-                                            <Run Text="{Binding Type}"/>
-                                    </TextBlock>
-                                    <TextBlock>
+                                    <TextBlock Text="{Binding Description}"
+                                                   FontSize="13"
+                                                   Foreground="#864f0c"/>
+
+                                    <StackPanel Orientation="Horizontal" Spacing="20">
+
+                                        <TextBlock>
+                                                <Run Text="Type: "/>
+                                                <Run Text="{Binding Type}"/>
+                                        </TextBlock>
+                                        <TextBlock>
                                             
-                                            <Run Text="{Binding Img}"/>
-                                    </TextBlock>
-                                    <TextBlock>
-                                            <Run Text="Material:   "/>
-                                            <Run Text="{Binding Material}"/>
-                                    </TextBlock>
-                                    <TextBlock>
-        <Run Text="{Binding ProductionTime}"/>
-                                    </TextBlock>
+                                                <Run Text="{Binding Img}"/>
+                                        </TextBlock>
+                                        <TextBlock>
+                                                <Run Text="Material:   "/>
+                                                <Run Text="{Binding Material}"/>
+                                        </TextBlock>
+                                        <TextBlock>
+            <Run Text="{Binding ProductionTime}"/>
+                                        </TextBlock>
 
-                                </StackPanel>
+                                    </StackPanel>
 
                                
 
-                            </StackPanel>
+                                </StackPanel>
 
-                        </Border>
+                            </Border>
 
-                    </DataTemplate>
+                        </DataTemplate>
 
-                </ListView.ItemTemplate>
+                    </ListView.ItemTemplate>
 
-            </ListView>
+                </ListView>
+            
+
 
         </StackPanel>
 
