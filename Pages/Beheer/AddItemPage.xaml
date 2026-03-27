@@ -36,7 +36,7 @@
                          Header="ProdutionTime"
                          PlaceholderText="hoelang deed het om de product te maken"/>
 
-                <Button Content="Save Item"
+                <Button Content="plaats product"
                         Click="Save_Click"
                         HorizontalAlignment="Left"/>    
 
