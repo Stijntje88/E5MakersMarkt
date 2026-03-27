@@ -56,19 +56,6 @@ public sealed partial class AddItemPage : Page
 
         try
         {
-            Name = ItemNameBox.Text,
-            Description = DescriptionBox.Text,
-            Img = ImgBox.Text,
-            Type = TypeBox.Text,
-            Material = MaterialBox.Text,
-            ProductionTime = ProductionTimeBox.Text,
-            
-        };
-
-        db.Products.Add(item);
-        db.SaveChanges();
-
-        Frame.GoBack();
             // Opslaan in database
             Product item = new Product
             {
@@ -84,7 +71,10 @@ public sealed partial class AddItemPage : Page
             db.SaveChanges();
 
             // Terug naar vorige pagina
-            Frame.GoBack();
+            if (Frame.CanGoBack)
+            {
+                Frame.GoBack();
+            }
         }
         catch (Exception)
         {
