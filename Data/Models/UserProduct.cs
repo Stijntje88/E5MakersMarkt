@@ -17,5 +17,7 @@ namespace E5MakersMarkt.Data.Models
 
         public DateTime Datum { get; set; }
         public float Price { get; set; }
+
+        public Boolean Reported { get; set; }
     }
 }

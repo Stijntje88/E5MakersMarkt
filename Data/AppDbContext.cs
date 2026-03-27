@@ -66,24 +66,24 @@ namespace E5MakersMarkt.Data
 
             // UserProduct (veel realistischer verdeeld)
             modelBuilder.Entity<UserProduct>().HasData(
-                new UserProduct { Id = 1, UserId = 2, ProductId = 1, Datum = new DateTime(2024, 3, 1), Price = 19.99f },
-                new UserProduct { Id = 2, UserId = 2, ProductId = 3, Datum = new DateTime(2024, 3, 5), Price = 24.50f },
+                new UserProduct { Id = 1, UserId = 2, ProductId = 1, Datum = new DateTime(2024, 3, 1), Price = 19.99f,Reported = false },
+                new UserProduct { Id = 2, UserId = 2, ProductId = 3, Datum = new DateTime(2024, 3, 5), Price = 24.50f, Reported = false },
 
-                new UserProduct { Id = 3, UserId = 3, ProductId = 2, Datum = new DateTime(2024, 3, 2), Price = 34.99f },
-                new UserProduct { Id = 4, UserId = 3, ProductId = 6, Datum = new DateTime(2024, 3, 6), Price = 22.00f },
+                new UserProduct { Id = 3, UserId = 3, ProductId = 2, Datum = new DateTime(2024, 3, 2), Price = 34.99f, Reported = false },
+                new UserProduct { Id = 4, UserId = 3, ProductId = 6, Datum = new DateTime(2024, 3, 6), Price = 22.00f, Reported = false },
 
-                new UserProduct { Id = 5, UserId = 4, ProductId = 4, Datum = new DateTime(2024, 3, 3), Price = 29.95f },
+                new UserProduct { Id = 5, UserId = 4, ProductId = 4, Datum = new DateTime(2024, 3, 3), Price = 29.95f, Reported = false },
 
-                new UserProduct { Id = 6, UserId = 5, ProductId = 5, Datum = new DateTime(2024, 3, 4), Price = 39.99f },
-                new UserProduct { Id = 7, UserId = 5, ProductId = 8, Datum = new DateTime(2024, 3, 7), Price = 9.99f },
+                new UserProduct { Id = 6, UserId = 5, ProductId = 5, Datum = new DateTime(2024, 3, 4), Price = 39.99f, Reported = false },
+                new UserProduct { Id = 7, UserId = 5, ProductId = 8, Datum = new DateTime(2024, 3, 7), Price = 9.99f, Reported = false },
 
-                new UserProduct { Id = 8, UserId = 6, ProductId = 7, Datum = new DateTime(2024, 3, 8), Price = 14.99f },
+                new UserProduct { Id = 8, UserId = 6, ProductId = 7, Datum = new DateTime(2024, 3, 8), Price = 14.99f, Reported = false },
 
-                new UserProduct { Id = 9, UserId = 7, ProductId = 1, Datum = new DateTime(2024, 3, 9), Price = 18.50f },
-                new UserProduct { Id = 10, UserId = 8, ProductId = 2, Datum = new DateTime(2024, 3, 10), Price = 36.00f },
-                new UserProduct { Id = 11, UserId = 9, ProductId = 3, Datum = new DateTime(2024, 3, 11), Price = 25.00f },
-                new UserProduct { Id = 12, UserId = 10, ProductId = 4, Datum = new DateTime(2024, 3, 12), Price = 31.99f },
-                new UserProduct { Id = 13, UserId = 11, ProductId = 5, Datum = new DateTime(2024, 3, 13), Price = 42.50f }
+                new UserProduct { Id = 9, UserId = 7, ProductId = 1, Datum = new DateTime(2024, 3, 9), Price = 18.50f, Reported = false },
+                new UserProduct { Id = 10, UserId = 8, ProductId = 2, Datum = new DateTime(2024, 3, 10), Price = 36.00f, Reported = false },
+                new UserProduct { Id = 11, UserId = 9, ProductId = 3, Datum = new DateTime(2024, 3, 11), Price = 25.00f, Reported = false },
+                new UserProduct { Id = 12, UserId = 10, ProductId = 4, Datum = new DateTime(2024, 3, 12), Price = 31.99f, Reported = false },
+                new UserProduct { Id = 13, UserId = 11, ProductId = 5, Datum = new DateTime(2024, 3, 13), Price = 42.50f, Reported = false }
             );
         }
 

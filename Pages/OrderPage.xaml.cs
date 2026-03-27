@@ -62,7 +62,8 @@ public sealed partial class OrderPage : Page
             UserId = CurrentSession.LoggedInUser.Id,
             ProductId = _selectedProduct.Id,
             Datum = DateTime.Now,
-            Price = price
+            Price = price,
+            Reported = false
         };
 
         db.UserProducts.Add(order);

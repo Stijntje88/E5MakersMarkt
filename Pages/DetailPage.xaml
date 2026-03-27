@@ -9,100 +9,94 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Padding="10">
+    <Grid Padding="20">
 
-        <!-- Duidelijke layout -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <!-- Product -->
-            <RowDefinition Height="Auto"/>
-            <!-- Home -->
-            <RowDefinition Height="Auto"/>
-            <!-- Order -->
-            <RowDefinition Height="Auto"/>
-            <!-- Form -->
-            <RowDefinition Height="*"/>
-            <!-- Comments -->
+            <RowDefinition Height="Auto"/> <!-- Actions -->
+            <RowDefinition Height="Auto"/> <!-- Product -->
+            <RowDefinition Height="Auto"/> <!-- Form -->
+            <RowDefinition Height="*"/>    <!-- Comments -->
+            <RowDefinition Height="Auto"/> <!-- Footer -->
         </Grid.RowDefinitions>
 
+        <!-- ACTION BUTTONS -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="10" Margin="0,0,0,20">
+            <Button Content="Home"
+                    Click="Home_Click"
+                    Width="120" Height="40" CornerRadius="8"
+                    Background="#C08A5B" Foreground="White"/>
+
+            <Button Content="Order"
+                    Click="Order_Click"
+                    Width="120" Height="40" CornerRadius="8"
+                    Background="#C08A5B" Foreground="White"/>
+        </StackPanel>
+
         <!-- PRODUCT INFO -->
-        <ListView x:Name="ProductListView" Grid.Row="0">
+        <ListView x:Name="ProductListView" Grid.Row="1" Margin="0,0,0,20" SelectionMode="Single">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="LocalData:UserProduct">
-                    <StackPanel Orientation="Horizontal" Spacing="10">
-                        <TextBlock Text="{x:Bind Product.Name}" Width="150"/>
-                        <TextBlock Text="{x:Bind User.Username}" Width="150"/>
-                        <TextBlock Text="{x:Bind Product.Type}" Width="100"/>
-                    </StackPanel>
+                    <Grid Background="{x:Bind local:DetailPage.GetBackground(Reported)}" Padding="10" CornerRadius="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <StackPanel Grid.Column="0" Spacing="5">
+                            <TextBlock Text="{x:Bind Product.Name}" FontSize="24" FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <TextBlock Text="Aangeboden door:" Foreground="Gray"/>
+                                <TextBlock Text="{x:Bind User.Username}" FontWeight="SemiBold"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <TextBlock Text="Type:" Foreground="Gray"/>
+                                <TextBlock Text="{x:Bind Product.Type}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                        <Button Grid.Column="1" VerticalAlignment="Center" Content="Report" 
+                                Click="Reported_Click" Width="100" Height="40" CornerRadius="8" 
+                                Background="#EF4444" Foreground="White" 
+                                DataContext="{x:Bind}"
+                                IsEnabled="{x:Bind local:DetailPage.IsNotReported(Reported)}" />
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <!-- BUTTONS -->
-        <Button Content="Home"
-                Grid.Row="1"
-                Click="Home_Click"
-                Width="150"
-                Height="40"
-                Margin="0,10,0,0"
-                CornerRadius="10"
-                Background="#C08A5B"
-                Foreground="White"/>
-
-        <Button Content="Order"
-                Grid.Row="2"
-                Click="Order_Click"
-                Width="150"
-                Height="40"
-                Margin="0,10,0,0"
-                CornerRadius="10"
-                Background="#C08A5B"
-                Foreground="White"/>
-
         <!-- COMMENT FORM -->
-        <StackPanel Grid.Row="3" Spacing="10" Margin="0,20,0,20">
+        <StackPanel Grid.Row="2" Spacing="15" Margin="0,0,0,20">
+            <TextBlock Text="Plaats een reactie" FontSize="20" FontWeight="Bold"/>
 
-            <TextBlock Text="Plaats een reactie"
-                       FontSize="18"
-                       FontWeight="Bold"/>
+            <TextBox x:Name="CommentTitle" Header="Titel" PlaceholderText="Voer een titel in" Width="400" HorizontalAlignment="Left"/>
+            
+            <TextBox x:Name="CommentRating" Header="Rating (1-5)" PlaceholderText="Bijv. 5" Width="150" HorizontalAlignment="Left"/>
 
-            <TextBox x:Name="CommentTitle"
-                     Header="Titel"
-                     PlaceholderText="Voer een titel in"/>
+            <TextBox x:Name="CommentDescription" Header="Beschrijving" PlaceholderText="Schrijf je reactie" AcceptsReturn="True" Height="80" Width="400" HorizontalAlignment="Left"/>
 
-            <TextBox x:Name="CommentDescription"
-                     Header="Beschrijving"
-                     PlaceholderText="Schrijf je reactie"
-                     AcceptsReturn="True"
-                     Height="80"/>
-
-            <TextBox x:Name="CommentRating"
-                     Header="Rating (1-5)"
-                     PlaceholderText="Bijv. 5"/>
-
-            <Button Content="Plaats comment"
-                    Click="AddComment_Click"/>
+            <Button Content="Plaats comment" Click="AddComment_Click" Width="150" Height="40" CornerRadius="8" Background="#C08A5B" Foreground="White" Margin="0,10,0,0"/>
         </StackPanel>
 
         <!-- COMMENTS LIST -->
-        <ListView x:Name="commentlistView" Grid.Row="4">
+        <ListView x:Name="commentlistView" Grid.Row="3" Margin="0,10,0,10" SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="LocalData:Comment">
-                    <StackPanel Spacing="5" Margin="0,0,0,15">
-
-                        
-                        <TextBlock Text="{x:Bind CommentTitle}" FontWeight="Bold"/>
-
-                        <TextBlock Text="{x:Bind User.Username}" FontStyle="Italic"/>
-
-                        <TextBlock Text="{x:Bind Description}" TextWrapping="WrapWholeWords"/>
-
-                        <TextBlock Text="{x:Bind Rating}"/>
-
-                    </StackPanel>
+                    <Border Background="#F3F4F6" CornerRadius="8" Padding="15" Margin="0,0,0,15">
+                        <StackPanel Spacing="5">
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <TextBlock Text="{x:Bind CommentTitle}" FontWeight="Bold" FontSize="16"/>
+                                <TextBlock Text="{x:Bind Rating}" Foreground="#EAB308" FontWeight="Bold"/>
+                            </StackPanel>
+                            <TextBlock Text="{x:Bind User.Username}" FontStyle="Italic" Foreground="Gray" FontSize="12"/>
+                            <TextBlock Text="{x:Bind Description}" TextWrapping="WrapWholeWords" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <!-- FOOTER BUTTONS -->
+        <!-- Removed Footer Reported button, now moved to ProductListView items -->
 
     </Grid>
 </Page>

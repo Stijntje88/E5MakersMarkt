@@ -41,6 +41,7 @@ public sealed partial class AddItemPage : Page
             Type = TypeBox.Text,
             Material = MaterialBox.Text,
             ProductionTime = ProductionTimeBox.Text,
+            
         };
 
         db.Products.Add(item);
