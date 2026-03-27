@@ -37,9 +37,12 @@ namespace E5MakersMarkt.Pages.Beheer
 
             var totalUsers = db.Users.Count();
             var totalVerifiedUser = db.Users.Count(s => s.Satus == "Verified");
+            var totalUnVerifiedUser = db.Users.Count(s => s.Satus == "Pending");
 
             TotalUsersText.Text = totalUsers.ToString();
             TotalVerfiedUser.Text = totalVerifiedUser.ToString();
+            TotalUnVerfiedUser.Text = totalUnVerifiedUser.ToString();
+
         }
         private void BeheerOverviewButton_Click(object sender, RoutedEventArgs e)
         {
