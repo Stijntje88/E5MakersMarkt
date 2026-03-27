@@ -26,26 +26,65 @@ namespace E5MakersMarkt.Pages;
 public sealed partial class AddItemPage : Page
 {
     private AppDbContext db = new AppDbContext();
+
     public AddItemPage()
     {
         InitializeComponent();
     }
 
-    private void Save_Click(object sender, RoutedEventArgs e)
+    private async void Save_Click(object sender, RoutedEventArgs e)
     {
-        Product item = new Product
+        // Controle: zijn alle velden ingevuld?
+        if (string.IsNullOrWhiteSpace(ItemNameBox.Text) ||
+            string.IsNullOrWhiteSpace(DescriptionBox.Text) ||
+            string.IsNullOrWhiteSpace(ImgBox.Text) ||
+            string.IsNullOrWhiteSpace(TypeBox.Text) ||
+            string.IsNullOrWhiteSpace(MaterialBox.Text) ||
+            string.IsNullOrWhiteSpace(ProductionTimeBox.Text))
         {
-            Name = ItemNameBox.Text,
-            Description = DescriptionBox.Text,
-            Img = ImgBox.Text,
-            Type = TypeBox.Text,
-            Material = MaterialBox.Text,
-            ProductionTime = ProductionTimeBox.Text,
-        };
+            ContentDialog dialog = new ContentDialog
+            {
+                Title = "Fout",
+                Content = "Vul alle velden in voordat je opslaat.",
+                CloseButtonText = "OK",
+                XamlRoot = this.Content.XamlRoot // voorkomt crash
+            };
 
-        db.Products.Add(item);
-        db.SaveChanges();
+            await dialog.ShowAsync();
+            return;
+        }
 
-        Frame.GoBack();
+        try
+        {
+            // Opslaan in database
+            Product item = new Product
+            {
+                Name = ItemNameBox.Text,
+                Description = DescriptionBox.Text,
+                Img = ImgBox.Text,
+                Type = TypeBox.Text,
+                Material = MaterialBox.Text,
+                ProductionTime = ProductionTimeBox.Text,
+            };
+
+            db.Products.Add(item);
+            db.SaveChanges();
+
+            // Terug naar vorige pagina
+            Frame.GoBack();
+        }
+        catch (Exception)
+        {
+            // Fout bij opslaan → melding tonen
+            ContentDialog errorDialog = new ContentDialog
+            {
+                Title = "Error",
+                Content = "Er ging iets mis bij het opslaan.",
+                CloseButtonText = "OK",
+                XamlRoot = this.Content.XamlRoot
+            };
+
+            await errorDialog.ShowAsync();
+        }
     }
 }
