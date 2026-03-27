@@ -28,8 +28,22 @@ namespace E5MakersMarkt.Pages.Beheer
         public BeheerOverViewPage()
         {
             InitializeComponent();
+            LoadDashBoard();
         }
 
+        private void LoadDashBoard()
+        {
+            using var db = new AppDbContext();
+
+            var totalUsers = db.Users.Count();
+            var totalVerifiedUser = db.Users.Count(s => s.Satus == "Verified");
+            var totalUnVerifiedUser = db.Users.Count(s => s.Satus == "Pending");
+
+            TotalUsersText.Text = totalUsers.ToString();
+            TotalVerfiedUser.Text = totalVerifiedUser.ToString();
+            TotalUnVerfiedUser.Text = totalUnVerifiedUser.ToString();
+
+        }
         private void BeheerOverviewButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(BeheerOverViewPage));
@@ -44,6 +58,11 @@ namespace E5MakersMarkt.Pages.Beheer
         {
             CurrentSession.LoggedInUser = null;
             Frame.Navigate(typeof(LoginOverViewPages));
+        }
+
+        private void Verified_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(VerifiedOverViewPage));
         }
     }
 }

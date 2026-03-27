@@ -78,6 +78,7 @@ namespace E5MakersMarkt.Pages.Login
                 Username = username,
                 Password = BCrypt.Net.BCrypt.HashPassword(password),
                 Role = "user",
+                Status = "Pending";
 
             };
 

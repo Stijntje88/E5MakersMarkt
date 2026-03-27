@@ -61,7 +61,7 @@ namespace E5MakersMarkt.Pages.Login
                 {
                     Frame.Navigate(typeof(BeheerOverViewPage));
                 }
-                if(user.Role == "user")
+                if(user.Role == "User")
                 {
                     Frame.Navigate(typeof(HomePages));
                 }

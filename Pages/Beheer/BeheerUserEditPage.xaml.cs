@@ -39,9 +39,24 @@ namespace E5MakersMarkt.Pages.Beheer
             userId = user.Id;
 
             NameTextBox.Text = user.Username;
+            RoleDropDownButton.Content = user.Role;
+
+            RoleDropDownButton.Tag = user.Role;
             
         }
 
+        private void MenuFlyoutItem_Click(object sender, RoutedEventArgs e)
+        {
+            var item = sender as MenuFlyoutItem;
+            if (item != null)
+            {
+                string selectedRole = item.Text;
+
+                RoleDropDownButton.Tag = item.Text;
+
+                RoleDropDownButton.Content = selectedRole;
+            }
+        }
         private void BeheerOverviewButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(BeheerOverViewPage));
@@ -56,6 +71,10 @@ namespace E5MakersMarkt.Pages.Beheer
         {
             Frame.Navigate(typeof(LoginOverViewPages));
         }
+        private void Verified_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(VerifiedOverViewPage));
+        }
 
         private void SaveChange_Click(object sender, RoutedEventArgs e)
         {
@@ -65,7 +84,8 @@ namespace E5MakersMarkt.Pages.Beheer
 
             if (user != null)
             {
-                user.Username = NameTextBox.Text.Trim(); ;
+                user.Username = NameTextBox.Text.Trim();
+                user.Role = RoleDropDownButton.Tag as string;
 
                 var enterdPassword = PasswordTextBox.Password.Trim();
                 if (!string.IsNullOrEmpty(enterdPassword))
