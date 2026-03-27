@@ -49,6 +49,16 @@
                     BorderThickness="0"
                     Click="UserButton_Click">
                 </Button>
+                <Button Content="✔️ Veriferen"
+                    Margin="0,5"
+                    Padding="15,12"
+                    Background="#C08A5B"
+                    Foreground="White"
+                    CornerRadius="8"
+                    FontWeight="SemiBold"
+                    BorderThickness="0"
+                    Click="Verified_Click">
+                </Button>
                 <Button x:Name="Logout"
                     Content="🚪 Uitloggen"
                     Margin="0,60,0,0"
@@ -65,44 +75,88 @@
 
 
         <Grid Grid.Column="1">
-            <StackPanel Spacing="20"
-                Padding="20"
-                Background="#FDF8F3"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
 
-                <Border Background="#FFF"
-                    CornerRadius="12"
-                    Padding="25"
-                    MaxWidth="320">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-                    <StackPanel Spacing="15"
-                        HorizontalAlignment="Center">
-
-                        <TextBlock Text="⚙ Maintenance"
-                           FontSize="18"
-                           Foreground="#5C4033"
-                           FontWeight="SemiBold"
-                           HorizontalAlignment="Center"/>
+            
+            <Grid Background="#8B5E3C" Padding="30,0">
+                <TextBlock 
+                    Text="Admin Dashboard"
+                    FontSize="28"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    VerticalAlignment="Center"/>
+            </Grid>
 
 
-                        <ProgressRing IsActive="True"
-                          Width="40"
-                          Height="40"
-                          Foreground="#5C4033"/>
+            <ScrollViewer Grid.Row="1" Margin="30,20,30,30">
+                <StackPanel Spacing="20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                        <TextBlock x:Name="NameTextBox"
-                           Text="Het BeheerDashboard is momenteel in de maak..."
-                           TextWrapping="Wrap"
-                           FontSize="14"
-                           Foreground="#3E2A1F"
-                           Opacity="0.85"
-                           TextAlignment="Center"/>
+                        <Border Background="White"
+                                Grid.Column="0"
+                            CornerRadius="12"
+                            Padding="25"
+                            Margin="0,0,10,0"
+                            BorderBrush="#C08A5B"
+                            BorderThickness="2">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
+                                    <TextBlock Text="👥" FontSize="24"/>
+                                    <TextBlock Text="Totalen Gebruikers"
+                                    FontSize="16"
+                                    Foreground="#3E2A1F"/>
+                                </StackPanel>
 
-                    </StackPanel>
-                </Border>
+                                <TextBlock x:Name="TotalUsersText"
+                                    Text="0"
+                                    FontSize="48"
+                                    FontWeight="Bold"
+                                    Foreground="#3E2A1F"/>
+                                <TextBlock Text="Geregisterden Accounts"
+                                    Foreground="#3E2A1F"
+                                    FontSize="12"
+                                    Margin="0,5,0,0"/>
+                            </StackPanel>
+                        </Border>
 
-            </StackPanel>
+                        <Border Background="White"
+                             CornerRadius="12"
+                             Padding="25"
+                             Margin="0,0,10,0"
+                             BorderBrush="#C08A5B"
+                             BorderThickness="2"
+                                Grid.Column="1">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
+                                    <TextBlock Text="✔️" FontSize="24"/>
+                                    <TextBlock Text="Totalen Geverifieerde Users"
+                                     FontSize="16"
+                                     Foreground="#3E2A1F"/>
+                                </StackPanel>
+
+                                <TextBlock x:Name="TotalVerfiedUser"
+                                     Text="0"
+                                     FontSize="48"
+                                     FontWeight="Bold"
+                                     Foreground="#3E2A1F"/>
+                                <TextBlock Text="Geverifieerde Accounts"
+                                     Foreground="#3E2A1F"
+                                     FontSize="12"
+                                     Margin="0,5,0,0"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Page>

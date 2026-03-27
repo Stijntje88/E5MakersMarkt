@@ -47,7 +47,8 @@ namespace E5MakersMarkt.Pages.Login
             {
                 Username = username,
                 Password = BCrypt.Net.BCrypt.HashPassword(password),
-                Role = "user",
+                Role = "User",
+                Satus = "Pending",
                
             };
             using var db = new AppDbContext();

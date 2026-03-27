@@ -116,4 +116,9 @@ public sealed partial class BeheerUserOverViewPage : Page
         var user = button?.DataContext as User;
         Frame.Navigate(typeof(BeheerUserEditPage), user);
     }
+
+    private void Verified_Click(object sender, RoutedEventArgs e)
+    {
+        Frame.Navigate(typeof(VerifiedOverViewPage));
+    }
 }

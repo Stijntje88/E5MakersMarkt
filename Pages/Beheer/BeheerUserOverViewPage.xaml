@@ -50,6 +50,16 @@
                     BorderThickness="0"
                     Click="UserButton_Click">
                 </Button>
+                <Button Content="✔️ Veriferen"
+                    Margin="0,5"
+                    Padding="15,12"
+                    Background="#C08A5B"
+                    Foreground="White"
+                    CornerRadius="8"
+                    FontWeight="SemiBold"
+                    BorderThickness="0"
+                    Click="Verified_Click">
+                </Button>
                 <Button x:Name="Logout"
                     Content="🚪 Uitloggen"
                     Margin="0,60,0,0"

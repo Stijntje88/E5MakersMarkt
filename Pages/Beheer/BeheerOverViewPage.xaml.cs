@@ -1,3 +1,4 @@
+using E5MakersMarkt.Data;
 using E5MakersMarkt.Pages.Login;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -27,8 +28,19 @@ namespace E5MakersMarkt.Pages.Beheer
         public BeheerOverViewPage()
         {
             InitializeComponent();
+            LoadDashBoard();
         }
 
+        private void LoadDashBoard()
+        {
+            using var db = new AppDbContext();
+
+            var totalUsers = db.Users.Count();
+            var totalVerifiedUser = db.Users.Count(s => s.Satus == "Verified");
+
+            TotalUsersText.Text = totalUsers.ToString();
+            TotalVerfiedUser.Text = totalVerifiedUser.ToString();
+        }
         private void BeheerOverviewButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(BeheerOverViewPage));
@@ -42,6 +54,11 @@ namespace E5MakersMarkt.Pages.Beheer
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(LoginOverViewPages));
+        }
+
+        private void Verified_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(VerifiedOverViewPage));
         }
     }
 }

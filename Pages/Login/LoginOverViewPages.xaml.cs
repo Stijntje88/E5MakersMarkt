@@ -54,11 +54,11 @@ namespace E5MakersMarkt.Pages.Login
             }
             else
             {
-                if(user.Role == "admin")
+                if(user.Role == "Admin")
                 {
                     Frame.Navigate(typeof(BeheerOverViewPage));
                 }
-                if(user.Role == "user")
+                if(user.Role == "User")
                 {
                     Frame.Navigate(typeof(HomePages));
                 }
