@@ -37,7 +37,7 @@ namespace E5MakersMarkt.Pages.Beheer
             using var db = new AppDbContext();
 
             var user = db.Users
-                .Where(s => s.Satus == "Pending")
+                .Where(s => s.Status == "Pending")
                 .ToList();
 
             BeheerUserList.ItemsSource = user;
@@ -50,7 +50,7 @@ namespace E5MakersMarkt.Pages.Beheer
             using var db = new AppDbContext();
 
             var user = db.Users
-               .Where(u => u.Username.Contains(searchQuery) && u.Satus == "Pending")
+               .Where(u => u.Username.Contains(searchQuery) && u.Status == "Pending")
                .ToList();
 
             BeheerUserList.ItemsSource = user;
@@ -89,7 +89,7 @@ namespace E5MakersMarkt.Pages.Beheer
 
             if (user != null)
             {
-                user.Satus = "Verified";
+                user.Status = "Verified";
             }
 
             db.SaveChanges();

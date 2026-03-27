@@ -1,3 +1,4 @@
+using E5MakersMarkt.Data;
 using E5MakersMarkt.Data.Session;
 using E5MakersMarkt.Pages.Login;
 using Microsoft.UI.Xaml;
@@ -36,8 +37,8 @@ namespace E5MakersMarkt.Pages.Beheer
             using var db = new AppDbContext();
 
             var totalUsers = db.Users.Count();
-            var totalVerifiedUser = db.Users.Count(s => s.Satus == "Verified");
-            var totalUnVerifiedUser = db.Users.Count(s => s.Satus == "Pending");
+            var totalVerifiedUser = db.Users.Count(s => s.Status == "Verified");
+            var totalUnVerifiedUser = db.Users.Count(s => s.Status == "Pending");
 
             TotalUsersText.Text = totalUsers.ToString();
             TotalVerfiedUser.Text = totalVerifiedUser.ToString();
