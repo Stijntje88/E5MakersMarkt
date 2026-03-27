@@ -38,7 +38,7 @@ namespace E5MakersMarkt.Pages
         private void LoadProducts()
         {
             using var db = new AppDbContext();
-            _allProducts = db.Products.ToList();
+            _allProducts = db.Products.Where(p => p.UserProduct.Any(up => !up.Reported)).ToList();
             ItemList.ItemsSource = _allProducts;
         }
 

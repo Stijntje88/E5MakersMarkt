@@ -43,6 +43,15 @@ namespace E5MakersMarkt.Pages
             LoadComment();
         }
 
+        public static Microsoft.UI.Xaml.Media.Brush GetBackground(bool isReported)
+        {
+            return isReported 
+                ? new Microsoft.UI.Xaml.Media.SolidColorBrush(Microsoft.UI.Colors.LightCoral)
+                : new Microsoft.UI.Xaml.Media.SolidColorBrush(Microsoft.UI.Colors.Transparent);
+        }
+
+        public static bool IsNotReported(bool isReported) => !isReported;
+
         private void LoadComment()
         {
             using var db = new AppDbContext();
@@ -92,9 +101,35 @@ namespace E5MakersMarkt.Pages
             LoadComment();
         }
 
+
+
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(HomePages));
+        }
+
+        private void Reported_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Microsoft.UI.Xaml.Controls.Button;
+            var selectedUserProduct = btn?.DataContext as UserProduct ?? ProductListView.SelectedItem as UserProduct;
+
+            if (selectedUserProduct == null)
+                return;
+
+            using var db = new AppDbContext();
+            var userProduct = db.UserProducts
+                .FirstOrDefault(up => up.Id == selectedUserProduct.Id);
+
+            if (userProduct == null)
+                return;
+
+            userProduct.Reported = true;
+            selectedUserProduct.Reported = true;
+
+            db.SaveChanges();
+
+            ProductListView.ItemsSource = null;
+            ProductListView.ItemsSource = _selectedProduct?.UserProduct?.ToList();
         }
 
         private void Order_Click(object sender, RoutedEventArgs e)
