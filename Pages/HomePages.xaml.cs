@@ -1,5 +1,6 @@
 using E5MakersMarkt.Data;
 using E5MakersMarkt.Data.Models;
+using E5MakersMarkt.Data.Session;
 using E5MakersMarkt.Pages.Login;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -63,11 +64,25 @@ namespace E5MakersMarkt.Pages
             }
         }
 
-
-
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
+            CurrentSession.LoggedInUser = null;
             Frame.Navigate(typeof(LoginOverViewPages));
+        }
+
+        private void AddItem_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AddItemPage));
+        }
+        private void ProductList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var product = e.ClickedItem as Product;
+
+            if (product == null)
+                return;
+
+            Frame.Navigate(typeof(DetailPage), product);
         }
     }
 }
+

@@ -16,6 +16,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
+
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
@@ -31,15 +32,44 @@ namespace E5MakersMarkt.Pages.Login
             InitializeComponent();
         }
 
-            private void RegisterButton_Click(object sender, RoutedEventArgs e)
-            {
+
+        private async void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+
             string username = UsernameTextBox.Text;
-            string password = PasswordTextBox.Text;
+            string password = PasswordTextBox.Password;
 
             if (string.IsNullOrWhiteSpace(username) ||
-                string.IsNullOrWhiteSpace(password) )
+                string.IsNullOrWhiteSpace(password))
             {
                 ErrorText.Text = "Vul alle velden in.";
+                return;
+            }
+
+            using var db = new AppDbContext();
+
+            var existingUser = db.Users.FirstOrDefault(u => u.Username == username);
+
+            if (existingUser != null)
+            {
+                ErrorText.Text = "Gebruikersnaam is al in gebruik.";
+                return;
+            }
+            if (password.Length < 6)
+            {
+                ErrorText.Text = "Wachtwoord moet minimaal 6 tekens lang zijn.";
+                return;
+            }
+
+            if (username.Length < 3)
+            {
+                ErrorText.Text = "Gebruikersnaam moet minimaal 3 tekens lang zijn.";
+                return;
+            }
+
+            if (username.Contains(" "))
+            {
+                ErrorText.Text = "Gebruikersnaam mag geen spaties bevatten.";
                 return;
             }
 
@@ -47,14 +77,29 @@ namespace E5MakersMarkt.Pages.Login
             {
                 Username = username,
                 Password = BCrypt.Net.BCrypt.HashPassword(password),
-                Role = "User",
-                Satus = "Pending",
-               
+                Role = "user",
+                Status = "Pending";
+
             };
-            using var db = new AppDbContext();
+
             db.Users.Add(newUser);
             db.SaveChanges();
+            ContentDialog dialog = new ContentDialog
+            {
+                XamlRoot = this.XamlRoot,
+                Title = "Registratie is voltooid",
+                Content = "Je account is succesvol aangemaakt.",
+                CloseButtonText = "OK"
+            };
+
+            await dialog.ShowAsync();
+
             Frame.Navigate(typeof(LoginOverViewPages));
         }
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LoginOverViewPages));
+        }
+        
     }
 }

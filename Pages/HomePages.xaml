@@ -8,119 +8,143 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
-        <StackPanel Spacing="20">
+    <Grid Padding="20">
 
-            <TextBlock Text="Makers Markt"
-                           FontSize="28"
-                           FontWeight="SemiBold"
-                           CharacterSpacing="100"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Titel -->
+            <RowDefinition Height="Auto"/>
+            <!-- Search -->
+            <RowDefinition Height="Auto"/>
+            <!-- Buttons -->
+            <RowDefinition Height="*"/>
+            <!-- ListView -->
+        </Grid.RowDefinitions>
 
-            <Border 
-                        CornerRadius="15"
-                        BorderBrush="#864f0c"
-                        BorderThickness="2"
-                        Padding="15,10">
+        <!-- Titel -->
+        <TextBlock Grid.Row="0"
+                   Text="Makers Markt"
+                   FontSize="28"
+                   FontWeight="SemiBold"
+                   CharacterSpacing="100"
+                   Margin="0,0,0,10"/>
 
-                <Border.Shadow>
-                    <ThemeShadow/>
-                </Border.Shadow>
+        
+        <Border Grid.Row="1"
+                CornerRadius="15"
+                BorderBrush="#864f0c"
+                BorderThickness="2"
+                Padding="15,10"
+                Margin="0,0,0,10">
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+            <Border.Shadow>
+                <ThemeShadow/>
+            </Border.Shadow>
 
-                    <!-- Search Icon -->
-                    <FontIcon Grid.Column="0"
-                                  Glyph="&#xE721;"
-                                  FontSize="20"
-                                  Foreground="#864f0c"
-                                  Margin="0,0,12,0"
-                                  VerticalAlignment="Center"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-                    <!-- Search TextBox -->
-                    <TextBox Grid.Column="1"
-                                 x:Name="SearchBox"
-                                 PlaceholderText="Search"
-                                 TextChanged="SearchBox_TextChanged"
-                                 BorderThickness="0"
-                                 Background="Transparent"
-                                 FontSize="15"
-                                 VerticalAlignment="Center"/>
-                </Grid>
-            </Border>
+                <FontIcon Grid.Column="0"
+                          Glyph="&#xE721;"
+                          FontSize="20"
+                          Foreground="#864f0c"
+                          Margin="0,0,12,0"
+                          VerticalAlignment="Center"/>
 
-           
+                <TextBox Grid.Column="1"
+                         x:Name="SearchBox"
+                         PlaceholderText="Search"
+                         TextChanged="SearchBox_TextChanged"
+                         BorderThickness="0"
+                         Background="Transparent"
+                         FontSize="15"/>
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    Spacing="10"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,10">
+
             <Button Content="LogOut"
-                        Click="LogOut_Click" 
-                        Height="36"
-                        FontWeight="SemiBold"
-                        FontSize="13"
-                        CornerRadius="8"
-                        Background="#855400"
-                        Foreground="White"
-                        HorizontalAlignment="Center"
-                        BorderThickness="0"
-            />
+                    Click="LogOut_Click"
+                    Height="36"
+                    FontWeight="SemiBold"
+                    FontSize="13"
+                    CornerRadius="8"
+                    Background="#855400"
+                    Foreground="White"/>
 
-            <ListView x:Name="ItemList">
+            <Button Content="Item toevoegen"
+                    Click="AddItem_Click"
+                    Height="36"
+                    FontWeight="SemiBold"
+                    FontSize="13"
+                    CornerRadius="8"
+                    Background="#855400"
+                    Foreground="White"/>
+        </StackPanel>
 
-                <ListView.ItemTemplate>
+        
+        <ListView Grid.Row="3"
+                  x:Name="ItemList"
+                  IsItemClickEnabled="True"
+                  ItemClick="ProductList_ItemClick">
 
-                    <DataTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
 
-                        <Border Padding="15"
-                                    Margin="0,5"
-                                    CornerRadius="10"
-                                    Background="#fafafa"
-                                    BorderBrush="#864f0c"
-                                    BorderThickness="1">
+                    <Border Padding="15"
+                            Margin="0,5"
+                            CornerRadius="10"
+                            Background="#fafafa"
+                            BorderBrush="#864f0c"
+                            BorderThickness="1">
 
-                            <StackPanel>
+                        <StackPanel>
 
-                                <TextBlock Text="{Binding Name}"
-                                               FontSize="18"
-                                               FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Name}"
+                                       FontSize="18"
+                                       FontWeight="Bold"/>
 
-                                <TextBlock Text="{Binding Description}"
-                                               FontSize="13"
-                                               Foreground="#864f0c"/>
+                            <TextBlock Text="{Binding Description}"
+                                       FontSize="13"
+                                       Foreground="#864f0c"/>
 
-                                <StackPanel Orientation="Horizontal" Spacing="20">
+                            <StackPanel Orientation="Horizontal" Spacing="20">
 
-                                    <TextBlock>
-                                            <Run Text="Type: "/>
-                                            <Run Text="{Binding Type}"/>
-                                    </TextBlock>
-                                    <TextBlock>
-                                            
-                                            <Run Text="{Binding Img}"/>
-                                    </TextBlock>
-                                    <TextBlock>
-                                            <Run Text="Material:   "/>
-                                            <Run Text="{Binding Material}"/>
-                                    </TextBlock>
-                                    <TextBlock>
-        <Run Text="{Binding ProductionTime}"/>
-                                    </TextBlock>
+                                <TextBlock>
+                                    <Run Text="Type: "/>
+                                    <Run Text="{Binding Type}"/>
+                                </TextBlock>
 
-                                </StackPanel>
+                                <TextBlock>
+                                    <Run Text="{Binding Img}"/>
+                                </TextBlock>
 
-                               
+                                <TextBlock>
+                                    <Run Text="Material: "/>
+                                    <Run Text="{Binding Material}"/>
+                                </TextBlock>
+
+                                <TextBlock>
+                                    <Run Text="{Binding ProductionTime}"/>
+                                </TextBlock>
 
                             </StackPanel>
 
-                        </Border>
+                        </StackPanel>
 
-                    </DataTemplate>
+                    </Border>
 
-                </ListView.ItemTemplate>
+                </DataTemplate>
+            </ListView.ItemTemplate>
 
-            </ListView>
-
-        </StackPanel>
+        </ListView>
 
     </Grid>
 
