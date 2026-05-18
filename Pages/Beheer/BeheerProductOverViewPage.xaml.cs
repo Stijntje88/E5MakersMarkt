@@ -1,4 +1,3 @@
-using E5MakersMarkt.Data;
 using E5MakersMarkt.Data.Session;
 using E5MakersMarkt.Pages.Login;
 using Microsoft.UI.Xaml;
@@ -24,27 +23,13 @@ namespace E5MakersMarkt.Pages.Beheer
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class BeheerOverViewPage : Page
+    public sealed partial class BeheerProductOverViewPage : Page
     {
-        public BeheerOverViewPage()
+        public BeheerProductOverViewPage()
         {
             InitializeComponent();
-            LoadDashBoard();
         }
 
-        private void LoadDashBoard()
-        {
-            using var db = new AppDbContext();
-
-            var totalUsers = db.Users.Count();
-            var totalVerifiedUser = db.Users.Count(s => s.Status == "Verified");
-            var totalUnVerifiedUser = db.Users.Count(s => s.Status == "Pending");
-
-            TotalUsersText.Text = totalUsers.ToString();
-            TotalVerfiedUser.Text = totalVerifiedUser.ToString();
-            TotalUnVerfiedUser.Text = totalUnVerifiedUser.ToString();
-
-        }
         private void BeheerOverviewButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(BeheerOverViewPage));
